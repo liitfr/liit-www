@@ -1,5 +1,5 @@
 strava
 linkedin / viadeo
-photos voyage
+photos
 i18n
 nojs

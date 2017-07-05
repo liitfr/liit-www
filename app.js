@@ -4,11 +4,12 @@ const htmlStandards = require('reshape-standard');
 const cssStandards = require('spike-css-standards');
 const jsStandards = require('spike-js-standards');
 const pageId = require('spike-page-id');
-const env = process.env.NODE_ENV
 const fs = require('fs');
 const path = require('path');
 const { _ } = require('lodash');
 const { ProvidePlugin } = require('webpack');
+
+const env = process.env.NODE_ENV;
 // const gridkiss = require('postcss-grid-kiss');
 
 const entry = Object.assign({}, ..._.map(_.filter(fs.readdirSync('./assets/js/'), file => file.charAt(0) !== '_'), file =>
@@ -26,11 +27,11 @@ module.exports = {
   ignore: ['**/layout.sgr', '**/_*', '.*', 'readme.md', 'yarn.lock'],
   reshape: htmlStandards({
     locals: ctx => ({ pageId: pageId(ctx) }),
-    minify: env === 'production'
+    minify: env === 'production',
   }),
   postcss: cssStandards({
     minify: env === 'production',
-    warnForDuplicates: env !== 'production'
+    warnForDuplicates: env !== 'production',
   }),
   babel: jsStandards(),
   entry,

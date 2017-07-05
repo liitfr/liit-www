@@ -71,7 +71,7 @@ let scrollVal;
 let isRevealed;
 let noscroll;
 let isAnimating;
-const containerPush = document.getElementById('js-intro-effect');
+const containerPush = document.getElementById('container');
 const trigger = containerPush.querySelector('#discover');
 
 function scrollY() {
