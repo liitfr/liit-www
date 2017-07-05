@@ -1,0 +1,17 @@
+/* TEAM */
+Designer: Mathias Hoffmann
+github:   liitfr
+Site:     liit.fr
+Twitter:  @liitfr
+Contact:  mathias [at] liit [dot] fr
+Location: Lyon, France
+
+                ___       ___          ___
+               /  /\     /  /\        /  /\
+ ___     ___  /  /:/    /  /:/       /  /:/
+/__/\   /  /\/__/::\   /__/::\      /  /:/
+\  \:\ /  /:/\__\/\:\__\__\/\:\__  /  /::\
+ \  \:\  /:/    \  \:\/\  \  \:\/\/__/:/\:\
+  \  \:\/:/      \__\::/   \__\::/\__\/  \:\
+   \  \::/       /__/:/    /__/:/      \  \:\
+    \__\/        \__\/     \__\/        \__\/

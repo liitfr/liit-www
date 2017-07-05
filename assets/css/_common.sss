@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,300,600,800|Lora:400italic|Playfair+Display:700')
+
+body
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+input,
+textarea,
+button,
+select,
+label,
+a
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+
+#logo svg #polylogo
+  fill: #b21158
+
+#logo svg #brand
+  fill: #282c34
+
+#logo svg
+  height: auto
+  width: 10%
+  margin: 3%
+  min-width: 120px
+
+  @media screen and (max-width: 27em)
+    min-width: 80px
+
+  @media screen and (max-width: 47em) and (orientation: landscape)
+    min-width: 50px
