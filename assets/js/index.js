@@ -48,15 +48,10 @@ function keydown(e) {
   }
 }
 
-function touchmove(e) {
-  preventDefault(e);
-}
-
 function disableScroll() {
   window.onmousewheel = null;
   document.onmousewheel = null;
   document.onkeydown = keydown;
-  document.body.ontouchmove = touchmove;
 }
 
 function enableScroll() {
@@ -194,7 +189,6 @@ function init() {
   const PI2 = Math.PI * 2;
   const material = new THREE.SpriteCanvasMaterial({
     color: 0xf000000,
-    // color: 0x0A0C0A,
     program: (context) => {
       context.beginPath();
       context.arc(0, 0, 0.5, 0, PI2, true);

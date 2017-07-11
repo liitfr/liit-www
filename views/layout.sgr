@@ -10,23 +10,43 @@ html.no-js(lang="fr")
 
     script.
       (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
-    // script.
-    //   if (navigator.serviceWorker) {
-    //     navigator.serviceWorker.register('/sw.js')
-    //       .then(function(reg) {
-    //         reg.addEventListener('updatefound', function() {
-    //           const newWorker = reg.installing;
-    //           newWorker.addEventListener('statechange', function() {
-    //             if (newWorker.state === 'activated') {
-    //               console.log('Refresh to install new version !');
-    //             }
-    //           });
-    //         })
-    //       })
-    //       .catch(function(err) {
-    //         console.error('Unable to register service worker.', err);
-    //       });
-    //   }
+    script.
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          function updateOnlineStatus(event) {
+            var condition = navigator.onLine ? "Live" : "Currently offline";
+            console.log(condition);
+          }
+          window.addEventListener('online',  updateOnlineStatus);
+          window.addEventListener('offline', updateOnlineStatus);
+          navigator.serviceWorker.register('sw.js').then(function(reg) {
+            reg.onupdatefound = function() {
+              var installingWorker = reg.installing;
+              installingWorker.onstatechange = function() {
+                switch (installingWorker.state) {
+                  case 'installed':
+                    if (navigator.serviceWorker.controller) {
+                      console.log('New or updated content is available.');
+                    } else {
+                      console.log('Content is now available offline!');
+                    }
+                    break;
+                  case 'redundant':
+                    console.error('The installing service worker became redundant.');
+                    break;
+                  case 'activated':
+                    if (!navigator.serviceWorker.controller) {
+                      console.error('Ready to work offline');
+                    }
+                    break;
+                }
+              };
+            };
+          }).catch(function(e) {
+            console.error('Error during service worker registration:', e);
+          });
+        });
+      }
 
     block(name="stylesheets")
       link(rel="stylesheet" href="/css/bundle.css")

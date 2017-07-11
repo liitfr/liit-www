@@ -10,13 +10,9 @@ const { _ } = require('lodash');
 const { ProvidePlugin } = require('webpack');
 
 const env = process.env.NODE_ENV;
-// const gridkiss = require('postcss-grid-kiss');
 
 const entry = Object.assign({}, ..._.map(_.filter(fs.readdirSync('./assets/js/'), file => file.charAt(0) !== '_'), file =>
   _.fromPairs([[`js/${path.parse(file).name}`, `./assets/js/${file}`]])));
-
-// const css = cssStandards();
-// css.plugins.push(gridkiss());
 
 module.exports = {
   devtool: 'source-map',
