@@ -40,7 +40,7 @@ gulp.task('dump-output-folders', () => {
 // -----------------------------------------------------------------------------
 
 // Execute spike compile
-gulp.task('compile-spike-project', gulp.series('dump-output-folders', () => {
+gulp.task('compile-spike-project', () => {
   exec(`spike compile -e ${gulpEnvName}`, (err, stdout, stderr) => {
     if (err) {
       console.error(`exec error: ${err}`);
@@ -51,13 +51,13 @@ gulp.task('compile-spike-project', gulp.series('dump-output-folders', () => {
     deferredCompile.resolve();
   });
   return deferredCompile.promise;
-}));
+});
 
 // -----------------------------------------------------------------------------
 
 // Create new deployment folder and take opportunity to clean data:
 // - remove comments in htaccess
-gulp.task('generate-deploy-folder', gulp.series('compile-spike-project', () => {
+gulp.task('generate-deploy-folder', () => {
   const htaccessFile = $.filter(file => minimatch(file.relative, '.htaccess', { dot: true }), { restore: true });
   return gulp.src(`${spikeOutputDir}/**/{*,.*}`)
     .pipe(htaccessFile)
@@ -65,7 +65,7 @@ gulp.task('generate-deploy-folder', gulp.series('compile-spike-project', () => {
     .pipe($.replace(/^\s*$/gm, ''))
     .pipe(htaccessFile.restore)
     .pipe(gulp.dest(gulpOutputDir));
-}));
+});
 
 // -----------------------------------------------------------------------------
 
@@ -244,14 +244,14 @@ gulp.task('deploy-ftp-pages', gulp.series('deploy-ftp-assets', () => {
 // -----------------------------------------------------------------------------
 
 // Main task ...
-gulp.task('default', gulp.series('deploy-ftp-pages'));
+gulp.task('default', gulp.series('dump-output-folders', 'compile-spike-project', 'deploy-ftp-pages'));
 
 // -----------------------------------------------------------------------------
 // UTILS
 // -----------------------------------------------------------------------------
 
 // Remove old hashed assets, use it from time to time to save some room on your FTP server
-// Warning : double check that gulpOutputDir is still here !
+// Warning : double check that gulpOutputDir is still here & up to date !
 gulp.task('drop-former-assets', () => {
   const conn = ftp.create(ftpServerConn);
   return conn.clean(`${ftpRemoteFolder}/**/*.{gif,jpeg,jpg,png,svg,js,css}`, gulpOutputDir);

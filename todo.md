@@ -4,16 +4,18 @@ clean `sgr` (and its `svg`)
 clean `sss`
 "bientôt disponible" anim
 `nojs` fallback + message
-`nogrid` message
 remove portfolio for now
 redirect all `404` & `403` to index for now
 semantic web
 google analytics
 check if `/index` is available as `/index.html` is
-CI + Greenkeeper + david-dm + codacy
+CI (ftp deploy ?) + Greenkeeper + david-dm + codacy
 grid content on mobile: are fonts too small ?
 snackbar colors
-go from grid to absolute
+center icons on mobile rendering
+text of #mh on mobile rendering
+center title on mobile rendering
+mixin for grid generation
 
 # Tomorrow
 
@@ -49,3 +51,5 @@ BUG: .remote is recursively replicated in .remote
 snackbar refresh bind
 Service worker notifications
 remove unused font
+`nogrid` message
+go from grid to absolute
