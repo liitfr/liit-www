@@ -7,6 +7,6 @@ install:
 before_script:
   - gulp dump-output-folders
 script:
-  - gulp compile-spike-project
-deploy:
+  - spike compile -e production
+after_success:
   - gulp deploy-ftp-pages
