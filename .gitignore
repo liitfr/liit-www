@@ -4,3 +4,4 @@ public
 _cache
 .remote
 .persistence
+.env
