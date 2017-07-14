@@ -1,5 +1,7 @@
 # liit-www
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/liitfr/liit-www.svg)](https://greenkeeper.io/)
+
 LIIT website
 
 ## Setup
