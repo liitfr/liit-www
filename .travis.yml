@@ -2,11 +2,16 @@ sudo: false
 language: node_js
 node_js:
   - 8
+before_install:
+  - npm install -g npm@5
+  - npm install -g greenkeeper-lockfile@1
 install:
   - npm install
 before_script:
+  - greenkeeper-lockfile-update
   - gulp dump-output-folders
 script:
   - spike compile -e production
 after_success:
   - gulp deploy-ftp-pages
+  - greenkeeper-lockfile-upload
