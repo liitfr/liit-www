@@ -9,8 +9,6 @@ const path = require('path');
 const { _ } = require('lodash');
 const { ProvidePlugin } = require('webpack');
 
-const env = process.env.NODE_ENV;
-
 const entry = Object.assign({}, ..._.map(_.filter(fs.readdirSync('./assets/js/'), file => file.charAt(0) !== '_'), file =>
   _.fromPairs([[`js/${path.parse(file).name}`, `./assets/js/${file}`]])));
 
@@ -20,15 +18,11 @@ module.exports = {
     html: '*(**/)*.sgr',
     css: '*(**/)*.sss',
   },
-  ignore: ['**/layout.sgr', '**/_*', '.*', 'readme.md', 'yarn.lock'],
+  ignore: ['**/layout.sgr', '**/_*', '.*', 'readme.md', 'yarn.lock', 'todo.md', 'package-lock.json', 'LICENSE.md', '.persistence/**/*'],
   reshape: htmlStandards({
     locals: ctx => ({ pageId: pageId(ctx) }),
-    minify: env === 'production',
   }),
-  postcss: cssStandards({
-    minify: env === 'production',
-    warnForDuplicates: env !== 'production',
-  }),
+  postcss: cssStandards(),
   babel: jsStandards(),
   entry,
   outputDir: process.env.SP_OUTPUT_DIR,

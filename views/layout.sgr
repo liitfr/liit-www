@@ -4,49 +4,10 @@ html.no-js(lang="fr")
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible" content="IE=edge, chrome=1")
     block(name="meta")
-    // LIIT : Doesn't work with three.js canvas
-    // meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0")
 
     script.
       (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
-    script.
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          function updateOnlineStatus(event) {
-            var condition = navigator.onLine ? "Live" : "Currently offline";
-            console.log(condition);
-          }
-          window.addEventListener('online',  updateOnlineStatus);
-          window.addEventListener('offline', updateOnlineStatus);
-          navigator.serviceWorker.register('sw.js').then(function(reg) {
-            reg.onupdatefound = function() {
-              var installingWorker = reg.installing;
-              installingWorker.onstatechange = function() {
-                switch (installingWorker.state) {
-                  case 'installed':
-                    if (navigator.serviceWorker.controller) {
-                      console.log('New or updated content is available.');
-                    } else {
-                      console.log('Content is now available offline!');
-                    }
-                    break;
-                  case 'redundant':
-                    console.error('The installing service worker became redundant.');
-                    break;
-                  case 'activated':
-                    if (!navigator.serviceWorker.controller) {
-                      console.error('Ready to work offline');
-                    }
-                    break;
-                }
-              };
-            };
-          }).catch(function(e) {
-            console.error('Error during service worker registration:', e);
-          });
-        });
-      }
 
     block(name="stylesheets")
       link(rel="stylesheet" href="/css/bundle.css")
@@ -56,7 +17,7 @@ html.no-js(lang="fr")
     link(rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png")
     link(rel="manifest" href="/manifest.json")
     link(rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff328c")
-    meta(name="theme-color" content="#000000")
+    meta(name="theme-color" content="#282c34")
 
     meta(name="author" content="liit.fr")
     link(rel="author" href="/humans.txt")

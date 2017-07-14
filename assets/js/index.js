@@ -145,15 +145,15 @@ let particle;
 let count = 0;
 let mouseX = 0;
 let mouseY = 0;
-let windowHalfX = document.body.clientWidth / 2;
+let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 
 function onWindowResize() {
-  windowHalfX = document.body.clientWidth / 2;
+  windowHalfX = window.innerWidth / 2;
   windowHalfY = window.innerHeight / 2;
-  camera.aspect = document.body.clientWidth / window.innerHeight;
+  camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize(document.body.clientWidth, window.innerHeight);
+  renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
 function onDocumentMouseMove(event) {
@@ -182,7 +182,7 @@ function onDocumentTouchMove(event) {
 function init() {
   containerWaves = document.querySelector('#waves');
   camera = new THREE.PerspectiveCamera(75,
-    document.body.clientWidth / window.innerHeight, 1, 10000);
+    window.innerWidth / window.innerHeight, 1, 10000);
   camera.position.z = 1000;
   scene = new THREE.Scene();
   particles = [];
@@ -208,7 +208,7 @@ function init() {
   }
   renderer = new THREE.CanvasRenderer();
   renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(document.body.clientWidth, window.innerHeight);
+  renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setClearColor(0x282c34, 1);
   containerWaves.appendChild(renderer.domElement);
   document.addEventListener('mousemove', onDocumentMouseMove, false);

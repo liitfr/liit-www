@@ -1,7 +1,0 @@
-{
-  "extends": [
-    "stylelint-config-lost"
-  ],
-  "rules": {
-  }
-}

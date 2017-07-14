@@ -1,16 +1,16 @@
 /* eslint no-console: ["error", { allow: ["info", "warn", "error"] }] */
-// TODO : GSAP treeshacking
-// BUG : eslint-import-resolver-webpack doesn't work with webpack 2
+/* eslint no-param-reassign: ["error", { "props": true, "ignorePropertyModificationsFor": ["reg"] }] */
 
 import * as FastClick from 'fastclick';
 import * as LogStyle from 'log-with-style';
 import * as TweenLite from 'TweenLite';
 import * as AttrPlugin from 'AttrPlugin';
+import * as SnackBar from 'node-snackbar';
 
 // -----------------------------------------------------------------------------
-// Related to -webkit-tap-highlight-color css rule
+// FastClick
 
-// document.addEventListener('touchstart', () => {}, true);
+FastClick.attach(document.body);
 
 // -----------------------------------------------------------------------------
 // Console message
@@ -21,6 +21,61 @@ const logTitle = 'font-family: Helvetica, Arial, sans-serif; color: #fff; font-s
 
 LogStyle('%cBienvenue !', logTitle);
 LogStyle('%cVous voyez ce message ?%c Nous pouvons travailler ensemble !', logItalic, logBold);
+
+// -----------------------------------------------------------------------------
+// Service Worker
+// https://github.com/GoogleChrome/sw-precache/blob/master/demo/app/js/service-worker-registration.js
+
+const offlineMsg = 'Vous êtes passé(e) en mode déconnecté.';
+const onlineMsg = 'Vous êtes de nouveau connecté(e).';
+const redundantMsg = 'SW : The installing service worker became redundant.';
+const errorMsg = 'SW : Error during service worker registration : ';
+const refreshMsg = 'Du nouveau contenu est disponible sur le site, vous pouvez y accéder en rafraichissant cette page.';
+const availableMsg = 'SW : Content is now available offline.';
+const close = 'Fermer';
+const refresh = 'Rafraîchir';
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    function updateOnlineStatus() {
+      SnackBar.show({
+        text: navigator.onLine ? onlineMsg : offlineMsg,
+        backgroundColor: '#000000',
+        actionText: close,
+      });
+    }
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+    navigator.serviceWorker.register('sw.js').then((reg) => {
+      reg.onupdatefound = () => {
+        const installingWorker = reg.installing;
+        installingWorker.onstatechange = () => {
+          switch (installingWorker.state) {
+            case 'installed':
+              if (navigator.serviceWorker.controller) {
+                SnackBar.show({
+                  text: refreshMsg,
+                  backgroundColor: '#000000',
+                  actionText: refresh,
+                  onActionClick: () => { location.reload(); },
+                });
+              } else {
+                console.info(availableMsg);
+              }
+              break;
+            case 'redundant':
+              console.info(redundantMsg);
+              break;
+            default:
+              break;
+          }
+        };
+      };
+    }).catch((e) => {
+      console.error(errorMsg, e);
+    });
+  });
+}
 
 // -----------------------------------------------------------------------------
 // Logo
@@ -51,10 +106,10 @@ function generate(mask, logoSides) {
 }
 
 function flickLogo() {
-  TweenLite.to('#polylogo', updateInterval, { attr: { d: generate(false, 40) }, onComplete: flickLogo });
+  TweenLite.to('.polylogo', updateInterval, { attr: { d: generate(false, 40) }, onComplete: flickLogo });
 }
 
-if (document.contains(document.getElementById('polylogo'))) {
-  document.querySelector('#polylogo').setAttribute('d', generate(false, 40));
+if (document.getElementsByClassName('polylogo').length > 0) {
+  document.querySelector('.polylogo').setAttribute('d', generate(false, 40));
   flickLogo();
 }

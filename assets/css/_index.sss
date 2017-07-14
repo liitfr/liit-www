@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,800')
+
 :root
   --grid-max-width: 662px
 
@@ -5,16 +7,19 @@
 @custom-media --above-large-grid (min-width: 821px)
 
 #index
+  height: 100%
   background: #282c34
   font-weight: 400
   font-size: 22px
   line-height: 1.5
   font-family: 'Raleway', Arial, sans-serif
+  overflow-x: hidden
 
   & #container
     & header
       color: #b21158
       background: transparent
+      min-height: 100vh
       height: 100vh
       margin: 0 auto
       width: 100%
@@ -58,7 +63,7 @@
     & #discover
       color: #b21158
       position: fixed
-      bottom: 10px
+      bottom: 15px
       right: 70px
       display: block
       padding: 0
@@ -108,7 +113,6 @@
 
   & #container:not(.notrans)
     & header,
-    & > #title,
     & #content > div
       transition-property: opacity, transform
       transition-duration: 1s
@@ -139,9 +143,6 @@
         transform: translateY(-100%) scale(0.9)
 
       &:not(.notrans)
-        & > #title
-          transition-delay: 0.5s
-
         & #content > div
           transition-delay: 0.6s
 
@@ -152,8 +153,11 @@
 
   & main
     position: relative
-    padding: 200px 0
+    padding: 200px 0 100px
     min-height: 100vh
+
+    @media screen and (--above-medium-grid)
+      padding: 200px 0
 
     & #grid
       margin: 0 auto
@@ -299,7 +303,7 @@
           left: 50%
           transform: translate(-50%, -50%)
           text-transform: uppercase
-          font-weight: bold
+          font-weight: 800
 
       & #web,
       & #app,
@@ -364,7 +368,7 @@
       & #mh
         color: #282c34
         font-size: 6.9vw
-        font-weight: bold
+        font-weight: 800
         line-height: 0.78
         text-transform: uppercase
 
