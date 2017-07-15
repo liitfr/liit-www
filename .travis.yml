@@ -13,5 +13,5 @@ before_script:
 script:
   - spike compile -e production
 after_success:
-  - gulp deploy-ftp-pages
   - greenkeeper-lockfile-upload
+  - gulp deploy-ftp-pages
