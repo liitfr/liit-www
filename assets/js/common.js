@@ -42,6 +42,8 @@ if ('serviceWorker' in navigator) {
         text: navigator.onLine ? onlineMsg : offlineMsg,
         backgroundColor: '#000000',
         actionText: close,
+        actionTextColor: '#b21158',
+        customClass: 'custom-snackbar',
       });
     }
     window.addEventListener('online', updateOnlineStatus);
@@ -57,7 +59,9 @@ if ('serviceWorker' in navigator) {
                   text: refreshMsg,
                   backgroundColor: '#000000',
                   actionText: refresh,
+                  actionTextColor: '#b21158',
                   onActionClick: () => { location.reload(); },
+                  customClass: 'custom-snackbar',
                 });
               } else {
                 console.info(availableMsg);

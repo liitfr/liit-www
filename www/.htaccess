@@ -109,7 +109,8 @@ ErrorDocument 404 /errors/404.html
 #
 # https://httpd.apache.org/docs/current/content-negotiation.html#multiviews
 
-Options -MultiViews
+# LIIT: disable this option if you want to access your pages without specifying extension
+# Options -MultiViews
 
 
 # ######################################################################
