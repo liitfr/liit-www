@@ -17,7 +17,7 @@
     & header
       color: #b21158
       background: transparent
-      height: 100vh
+      height: 100%
       margin: 0 auto
       width: 100%
 
@@ -311,6 +311,9 @@
           width: 100%
           list-style-type: none
           padding: 0
+
+        & span
+          display: block
 
         @media screen and (--above-medium-grid)
           width: calc(((100% - 80px) * 2 / 5) + 20px)

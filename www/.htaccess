@@ -1223,8 +1223,8 @@ AddType application/octet-stream .doc .docx .xls .xlsx .csv .mp3 .mp4 .avi .mpg 
 <Files sw.js>
   # Header unset Cache-Control
   # Header append Cache-Control "no-cache, must-revalidate"
-  FileETag None
-  Header unset ETag
+  # FileETag None # LIIT : disabled this to check if it allows cdn update
+  # Header unset ETag # LIIT : disabled this to check if it allows cdn update
   Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
   Header set Pragma "no-cache"
   Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"

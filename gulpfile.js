@@ -200,7 +200,7 @@ gulp.task('bundle-sw', gulp.series('generate-sitemap', () => {
   return wbBuild.generateSW({
     globDirectory: gulpOutputDir,
     swDest: `${gulpOutputDir}/sw.js`,
-    globPatterns: ['**/*.{html,png,xml,css,ico,txt,json,svg,js,map,gif,jpeg,jpg,bmp,cur,webp}'],
+    globPatterns: ['**/*.{html,png,xml,css,ico,txt,json,svg,js,map,gif,jpeg,jpg,bmp,cur,webp,woff2}'],
     skipWaiting: true,
     clientsClaim: true,
   })

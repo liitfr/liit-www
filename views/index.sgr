@@ -62,8 +62,7 @@ extends(src="layout.sgr")
           #mh
             ul
               li
-                span Mathias
-                span &nbsp;
+                span Mathias&nbsp;
                 span Hoffmann
               li 0662467082
               li Lyon, RAA
