@@ -106,13 +106,18 @@ html.no-js(lang="fr")
           "url": "https://liit.fr"
       }
 
-
   body(role="document" id="{{ pageId }}")
     block(name="content")
 
-    script(src="/js/common.js" defer)
+    script(src="/js/common.js" data-turbolinks-eval="false" defer)
     block(name="javascript")
-    script.
+    script(data-turbolinks-eval="false").
       window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-      ga('create','UA-89600001-1','auto');ga('send','pageview')
-    script(src="https://www.google-analytics.com/analytics.js" async defer)
+      ga('create','UA-89600001-1','auto');
+      document.addEventListener('turbolinks:load', function(){
+        if (typeof ga === 'function') {
+          ga('set', 'location', event.data.url);
+          ga('send', 'pageview');
+        }
+      });
+    script(src="https://www.google-analytics.com/analytics.js" data-turbolinks-eval="false" async defer)

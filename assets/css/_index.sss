@@ -338,12 +338,38 @@
           top: calc(((100% - 140px) * 7 / 8) + 140px)
           left: calc(((100% - 80px) * 4 / 5) + 80px)
 
+      & #soon
+        opacity: 0
+        font-size: 35px
+        background-color: #d2de2f
+        color: #282c34
+        transition: opacity 0.3s
+        visibility: hidden
+
+        &.show
+          opacity: 1
+
+        @media screen and (--above-medium-grid)
+          width: calc(((100% - 80px) * 2 / 5) + 20px)
+          height: calc((100% - 140px) * 1 / 8)
+          top: calc(((100% - 140px) * 3 / 8) + 60px)
+          left: calc(((100% - 80px) * 3 / 5) + 60px)
+          visibility: visible
+
+      & .soon
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+
       & #portfolio,
       & #blog,
       & #tech,
-      & #who
-        background-color: #282c34
-        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b21158' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E")
+      & #who,
+      & #soon
+        &:not(#soon)
+          background-color: #282c34
+          background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b21158' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E")
+
+          &:hover
+            cursor: pointer
 
         & > span
           margin: 0
@@ -359,6 +385,9 @@
       & #data
         background: #282c34
         border: solid 4px #b21158
+
+        &:hover
+          cursor: pointer
 
         & > div
           position: relative
@@ -418,3 +447,24 @@
         & > svg
           width: 100%
           height: 100%
+
+.no-js #index
+  & *
+    opacity: 1 !important
+
+  & header
+    position: relative !important
+    height: 100vh !important
+
+  & #discover
+    position: absolute !important
+
+  & main
+    padding: 100px 0 200px !important
+
+    & #grid
+      position: relative !important
+      transform: initial !important
+
+      & #soon
+        display: none !important

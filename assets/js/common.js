@@ -6,6 +6,12 @@ import * as LogStyle from 'log-with-style';
 import * as TweenLite from 'TweenLite';
 import * as AttrPlugin from 'AttrPlugin';
 import * as SnackBar from 'node-snackbar';
+import * as Turbolinks from 'turbolinks';
+
+// -----------------------------------------------------------------------------
+// Turbolinks
+
+Turbolinks.start();
 
 // -----------------------------------------------------------------------------
 // FastClick
@@ -42,7 +48,7 @@ if ('serviceWorker' in navigator) {
         text: navigator.onLine ? onlineMsg : offlineMsg,
         backgroundColor: '#000000',
         actionText: close,
-        actionTextColor: '#b21158',
+        actionTextColor: '#d2de2f',
         customClass: 'custom-snackbar',
       });
     }
@@ -59,7 +65,7 @@ if ('serviceWorker' in navigator) {
                   text: refreshMsg,
                   backgroundColor: '#000000',
                   actionText: refresh,
-                  actionTextColor: '#b21158',
+                  actionTextColor: '#d2de2f',
                   onActionClick: () => { location.reload(); },
                   customClass: 'custom-snackbar',
                 });

@@ -1,7 +1,7 @@
 {
   "name": "liit-www",
   "description": "LIIT website",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "author": "liitfr",
   "ava": {
     "verbose": "true"
@@ -20,17 +20,17 @@
     "spike-css-standards": "^2.0.1",
     "spike-js-standards": "^2.0.2",
     "spike-page-id": "^1.0.0",
-    "three": "^0.86.0"
+    "three": "^0.86.0",
+    "turbolinks": "^5.0.3"
   },
   "devDependencies": {
     "ava": "^0.21.0",
     "del": "^3.0.0",
-    "eslint": "^4.2.0",
+    "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.2",
-    "eslint-import-resolver-webpack": "^0.8.1",
-    "eslint-plugin-import": "^2.6.1",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.0.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-changed": "^3.1.0",
     "gulp-dest-clean": "^0.5.0",
@@ -61,5 +61,14 @@
     "precommit": "npm run lint -s",
     "pretest": "npm run lint -s",
     "test": "NODE_ENV=test ava"
+  },
+  "greenkeeper": {
+    "ignore": [
+      "eslint",
+      "eslint-config-airbnb",
+      "eslint-plugin-import",
+      "eslint-plugin-jsx-a11y",
+      "eslint-plugin-react"
+    ]
   }
 }

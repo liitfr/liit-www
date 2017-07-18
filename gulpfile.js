@@ -22,7 +22,6 @@ const ftpServerConn = {
 const gulpEnvName = process.env.GU_ENV_NAME;
 const gulpOutputDir = process.env.GU_OUTPUT_DIR;
 const gulpSiteMapSiteUrl = process.env.GU_SM_SITE_URL;
-const gulpPersistenceDir = process.env.GU_PERSISTENCE_DIR;
 const gulpGoogleSiteVer = process.env.GU_GOOGLE_SITE_VER;
 const spikeOutputDir = process.env.SP_OUTPUT_DIR;
 
@@ -167,28 +166,15 @@ gulp.task('drop-unnecessary-files', gulp.series('js-replace', () => {
 
 // -----------------------------------------------------------------------------
 
-// Pages are always overwrited in dist folder, so we need a way to
-// keep last modification dates, compilations after compilations. This is done
-// By never erasing persistent folder and updating it at every new compilation.
-gulp.task('pages-lastmod-update', gulp.series('drop-unnecessary-files', () => {
+// Now we can generate sitemap.xml !
+gulp.task('generate-sitemap', gulp.series('drop-unnecessary-files', () => {
   return gulp.src([
     `${gulpOutputDir}/**/*.{htm,html}`,
-  ])
-    .pipe($.destClean(`${gulpPersistenceDir}`))
-    .pipe($.changed(`${gulpPersistenceDir}`, { hasChanged: $.changed.compareSha1Digest }))
-    .pipe(gulp.dest(`${gulpPersistenceDir}`));
-}));
-
-// -----------------------------------------------------------------------------
-
-// Now we can generate sitemap.xml !
-gulp.task('generate-sitemap', gulp.series('pages-lastmod-update', () => {
-  return gulp.src([
-    `${gulpPersistenceDir}/**/*.{htm,html}`,
-    `!${gulpPersistenceDir}/${gulpGoogleSiteVer}`,
-  ], { base: `${gulpPersistenceDir}`, buffer: false, read: false })
+    `!${gulpOutputDir}/${gulpGoogleSiteVer}`,
+  ], { base: `${gulpOutputDir}`, buffer: false, read: false })
     .pipe($.sitemap({
       siteUrl: gulpSiteMapSiteUrl,
+      lastmod: '',
     }))
     .pipe(gulp.dest(gulpOutputDir));
 }));

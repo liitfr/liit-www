@@ -6,6 +6,3 @@ extends(src="../layout.sgr")
 
   block(name="content")
     h2 403
-
-  block(name="javascript")
-    script(src="/js/errors.js" defer)
