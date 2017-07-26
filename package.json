@@ -49,6 +49,7 @@
     "snazzy": "^7.0.0",
     "spike-core": "^2.0.0",
     "standard": "^10.0.2",
+    "stylelint-config-standard": "^17.0.0",
     "vinyl-ftp": "^0.6.0",
     "workbox-build": "^1.0.1"
   },

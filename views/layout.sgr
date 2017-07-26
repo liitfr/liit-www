@@ -10,7 +10,6 @@ html.no-js(lang="fr")
       (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
 
     block(name="stylesheets")
-      link(rel="stylesheet" href="/css/bundle.css")
 
     link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
     link(rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png")
@@ -23,14 +22,14 @@ html.no-js(lang="fr")
     link(rel="author" href="/humans.txt")
     meta(name="copyright" content="Tous droits réservés - LIIT")
 
-    meta(name="DC.title" content="Invenieur Informatifien | LIIT")
+    meta(name="DC.title" content="Invénieur Informatifien | LIIT")
     meta(name="geo.region" content="FR-69")
     meta(name="geo.placename" content="Caluire-et-Cuire")
     meta(name="geo.position" content="45.8;4.8")
     meta(name="ICBM" content="45.8, 4.8")
 
     meta(property="og:type" content="business.business")
-    meta(property="og:title" content="LIIT, invenieur informatifien")
+    meta(property="og:title" content="LIIT, invénieur informatifien")
     meta(property="og:url" content="https://liit.fr")
     meta(property="og:image" content="https://liit.fr/img/social-networks/facebook-card.png")
     meta(property="og:description" content="Freelance. Full stack: Web, Apps, Data")
@@ -38,7 +37,7 @@ html.no-js(lang="fr")
     meta(property="og:image:type" content="image/png")
     meta(property="og:image:width" content="1200")
     meta(property="og:image:height" content="631")
-    meta(property="og:image:alt" content="LIIT, invenieur informatifien")
+    meta(property="og:image:alt" content="LIIT, invénieur informatifien")
 
     meta(property="business:contact_data:street_address" content="rue de Margnolles")
     meta(property="business:contact_data:locality" content="Caluire-et-Cuire")
@@ -68,11 +67,11 @@ html.no-js(lang="fr")
     meta(name="twitter:card" content="summary_large_image")
     meta(name="twitter:site" content="@liitfr")
     meta(name="twitter:creator" content="@liitfr")
-    meta(name="twitter:title" content="LIIT, invenieur informatifien")
+    meta(name="twitter:title" content="LIIT, invénieur informatifien")
     meta(name="twitter:description" content="Freelance. Full stack: Web, Apps, Data")
     meta(name="twitter:url" content="https://liit.fr")
     meta(name="twitter:image" content="https://liit.fr/img/social-networks/twitter-large-card.png")
-    meta(name="twitter:image:alt" content="LIIT, invenieur informatifien")
+    meta(name="twitter:image:alt" content="LIIT, invénieur informatifien")
 
     script(type="application/ld+json").
       {

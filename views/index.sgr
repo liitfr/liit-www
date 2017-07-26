@@ -3,6 +3,8 @@ extends(src="layout.sgr")
     title Invénieur Informatifien | LIIT
     meta(name="description" content="Freelance à Lyon. Développements full stack: Web, Apps, Data")
     meta(name="robots" content="index, follow")
+  block(name="stylesheets")
+    link(rel="stylesheet" href="/css/index.css")
 
   block(name="content")
     #container

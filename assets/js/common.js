@@ -54,7 +54,7 @@ if ('serviceWorker' in navigator) {
     }
     window.addEventListener('online', updateOnlineStatus);
     window.addEventListener('offline', updateOnlineStatus);
-    navigator.serviceWorker.register('sw.js').then((reg) => {
+    navigator.serviceWorker.register('/sw.js').then((reg) => {
       reg.onupdatefound = () => {
         const installingWorker = reg.installing;
         installingWorker.onstatechange = () => {
