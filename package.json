@@ -1,7 +1,7 @@
 {
   "name": "liit-www",
   "description": "LIIT website",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "liitfr",
   "ava": {
     "verbose": "true"
@@ -9,6 +9,7 @@
   "bugs": "https://github.com/liitfr/liit-www/issues",
   "dependencies": {
     "dotenv": "^4.0.0",
+    "dynamics.js": "^1.1.5",
     "fastclick": "^1.0.6",
     "gsap": "^1.20.2",
     "lodash": "^4.17.4",

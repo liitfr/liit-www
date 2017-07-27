@@ -1,0 +1,129 @@
+extends(src="layout.sgr")
+  block(name="meta")
+    title Portfolio | LIIT
+    meta(name="description" content="Découvrez une sélection de développements Web, Apps, Data")
+    meta(name="robots" content="index, follow")
+  block(name="stylesheets")
+    link(rel="stylesheet" href="/css/portfolio.css")
+
+  block(name="content")
+    .container
+      header.bp-header.cf
+        span Blueprint
+          span.bp-icon.bp-icon-about(data-content="The Blueprints are a collection of basic and minimal website concepts, components, plugins and layouts with minimal style for easy adaption and usage, or simply for inspiration.")
+        h1 Zoom Slider
+        nav
+          a.bp-icon.bp-icon-prev(href="http://tympanus.net/Blueprints/FilterableProductGrid/" data-info="previous Blueprint")
+            span Previous Blueprint
+          a.bp-icon.bp-icon-drop(href="http://tympanus.net/codrops/?p=24330" data-info="back to the Codrops article")
+            span back to the Codrops article
+          a.bp-icon.bp-icon-archive(href="http://tympanus.net/codrops/category/blueprints/" data-info="Blueprints archive")
+            span Go to the archive
+      section.slider
+        .slide(data-content="content-1")
+          .slide__mover
+            .zoomer.flex-center
+              img.zoomer__image(src="/img/iphone.png" alt="iPhone")
+              .preview
+                img(src="/img/iphone-content-preview.png" alt="iPhone app preview")
+                .zoomer__area.zoomer__area--size-2
+          h2.slide__title
+            span The Classy
+            | iPhone 6
+        .slide(data-content="content-2")
+          .slide__mover
+            .zoomer.flex-center
+              img.zoomer__image(src="/img/ipad.png" alt="iPad Mini")
+              .preview
+                img(src="/img/ipad-content-preview.png" alt="iPad Mini app preview")
+                .zoomer__area.zoomer__area--size-4
+          h2.slide__title
+            span The Fantastic
+            | iPad Mini
+        .slide(data-content="content-3")
+          .slide__mover
+            .zoomer.flex-center
+              img.zoomer__image(src="/img/macbook.png" alt="MacBook")
+              .preview
+                img(src="/img/macbook-content-preview.jpg" alt="MacBook app preview")
+                .zoomer__area.zoomer__area--size-3
+          h2.slide__title
+            span The Amazing
+            | MacBook
+        .slide(data-content="content-4")
+          .slide__mover
+            .zoomer.flex-center
+              img.zoomer__image(src="/img/imac.png" alt="iMac")
+              .preview
+                img(src="/img/imac-content-preview.jpg" alt="iMac app preview")
+                .zoomer__area.zoomer__area--size-5
+          h2.slide__title
+            span The Glorious
+            | iMac
+        .slide(data-content="content-5")
+          .slide__mover
+            .zoomer.flex-center
+              img.zoomer__image(src="/img/apple-watch.png" alt="Apple Watch")
+              .preview.rounded
+                img(src="/img/apple-watch-content-preview.png" alt="Apple Watch app preview")
+                .zoomer__area.zoomer__area--size-1
+          h2.slide__title
+            span The Fabulous
+            | Apple Watch
+        nav.slider__nav
+          button.button.button--nav-prev
+            i.icon.icon--arrow-left
+            span.text-hidden Previous product
+          button.button.button--zoom
+            i.icon.icon--zoom
+            span.text-hidden View details
+          button.button.button--nav-next
+            i.icon.icon--arrow-right
+            span.text-hidden Next product
+      section.content
+        .content__item#content-1
+          img.content__item-img.rounded-right(src="/img/iphone-content.png" alt="Apple Watch Content")
+          .content__item-inner
+            h2 The iPhone 6
+            h3 Incredible performance for powerful apps
+            p Built on 64-bit desktop-class architecture, the new A8 chip delivers more power, even while driving a larger display. The M8 motion coprocessor efficiently gathers data from advanced sensors and a new barometer. And with increased battery life, iPhone 6 lets you do more, for longer than ever.
+            p
+              a(href="https://www.apple.com/iphone-6/technology/") Learn more about this technology &xrarr;
+        .content__item#content-2
+          img.content__item-img.rounded-right(src="/img/ipad-content.jpg" alt="iPad Mini Content")
+          .content__item-inner
+            h2 The iPad Mini
+            h3 Desktop-class architecture without a desktop
+            p Don’t let its size fool you. iPad mini 3 is powered by an A7 chip with 64-bit desktop-class architecture. A7 delivers amazing processing power without sacriﬁcing battery life. So you get incredible performance in a device you can take with you wherever you go.
+            p
+              a(href="https://www.apple.com/ipad-mini-3/performance/") Learn more about Performance &xrarr;
+        .content__item#content-3
+          img.content__item-img.rounded-right(src="/img/macbook-content.jpg" alt="MacBook Content")
+          .content__item-inner
+            h2 The MacBook
+            h3 It's the future of the notebook
+            p With the new MacBook, we set out to do the impossible: engineer a full-size experience into the lightest and most compact Mac notebook ever. That meant reimagining every element to make it not only lighter and thinner but also better. The result is more than just a new notebook. It's the future of the notebook.
+            p
+              a(href="https://www.apple.com/macbook/design/") Learn more about the design &xrarr;
+        .content__item#content-4
+          img.content__item-img.rounded-right(src="/img/imac-content.jpg" alt="iMac Content")
+          .content__item-inner
+            h2 The iMac
+            h3 Engineered to the very last detail
+            p Every new Mac comes with Photos, iMovie, GarageBand, Pages, Numbers, and Keynote. So you can be creative with your photos, videos, music, documents, spreadsheets, and presentations right from the start. You also get great apps for email, surfing the web, sending texts, and making FaceTime calls — there’s even an app for finding new apps.
+            p
+              a(href="https://www.apple.com/imac/built-in-apps/") Learn more about the iMac's features &xrarr;
+        .content__item#content-5
+          img.content__item-img.rounded-right(src="/img/apple-watch-content.png" alt="Apple Watch Content")
+          .content__item-inner
+            h2 The Apple Watch
+            h3 Entirely new ways to stay in touch
+            p Apple Watch makes all the ways you're used to communicating more convenient. And because it sits right on your wrist, it can add a physical dimension to alerts and notifications. For example, you’ll feel a gentle tap with each incoming message. Apple Watch also lets you connect with your favorite people in fun, spontaneous ways — like sending a tap, a sketch, or even your heartbeat.
+            p
+              a(href="https://www.apple.com/watch/new-ways-to-connect/") Learn more about new ways to connect &xrarr;
+        button.button.button--close
+          i.icon.icon--circle-cross
+          span.text-hidden Close content
+
+  block(name="javascript")
+    script(src="/js/portfolio.js" defer)
