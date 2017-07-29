@@ -1,7 +1,7 @@
 {
   "name": "liit-www",
   "description": "LIIT website",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "liitfr",
   "ava": {
     "verbose": "true"
@@ -12,6 +12,7 @@
     "dynamics.js": "^1.1.5",
     "fastclick": "^1.0.6",
     "gsap": "^1.20.2",
+    "lazysizes": "^4.0.0-rc3",
     "lodash": "^4.17.4",
     "log-with-style": "^0.3.0",
     "node-snackbar": "^0.1.7",

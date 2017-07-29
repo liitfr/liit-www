@@ -3,6 +3,7 @@ extends(src="layout.sgr")
     title Invénieur Informatifien | LIIT
     meta(name="description" content="Freelance à Lyon. Développements full stack: Web, Apps, Data")
     meta(name="robots" content="index, follow")
+    meta(name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0")
   block(name="stylesheets")
     link(rel="stylesheet" href="/css/index.css")
 
@@ -27,8 +28,9 @@ extends(src="layout.sgr")
         span &nbsp;Informatifien
       main#content(role="main")
         #grid
-          #portfolio.soon
-            span Portfolio
+          #portfolio
+            a(href="/portfolio")
+              span Portfolio
           #ghb
             a(href="https://github.com/liitfr" rel="noopener noreferrer" target="_blank")
               svg(viewBox="-100 -100 1224 1224")

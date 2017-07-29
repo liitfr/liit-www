@@ -12,6 +12,7 @@ before_script:
   - gulp dump-output-folders
 script:
   - spike compile -e production
-after_success:
+after_script:
   - greenkeeper-lockfile-upload
-  - gulp deploy-ftp-pages
+after_success:
+  - test $TRAVIS_BRANCH = "master" && gulp deploy-ftp-pages

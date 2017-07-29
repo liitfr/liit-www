@@ -1,4 +1,5 @@
 import * as dynamics from 'dynamics.js';
+import lazySizes from 'lazysizes';
 
 const bodyEl = document.body;
 const onEndTransition = function onEndTransition(el, callback) {
@@ -135,6 +136,9 @@ function initEvents() {
           break;
         case 39:
           window.location.hash = `#slider/${contentList[current === itemsTotal - 1 ? 0 : current + 1]}`;
+          break;
+        case 13:
+          window.location.hash = `#zoom/${currentContent}`;
           break;
         default:
           break;
@@ -423,3 +427,8 @@ init();
 
 // first rendering has been done.
 firstRendering = false;
+
+// config LazySizes
+Object.assign(lazySizes.cfg, {
+  preloadAfterLoad: true,
+});
