@@ -1,308 +1,378 @@
+@font-face
+  font-family: 'Lato'
+  font-style: normal
+  font-weight: 400
+  src: local('Lato Regular'), local('Lato-Regular'), url(../fonts/Lato/Lato-Regular.woff2) format('woff2')
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215
+
+@font-face
+  font-family: 'Lato'
+  font-style: normal
+  font-weight: 700
+  src: local('Lato Bold'), local('Lato-Bold'), url(../fonts/Lato/Lato-Bold.woff2) format('woff2')
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215
+
+@font-face
+  font-family: 'feather'
+  src: url('../fonts/Feather/feather.eot?-ajbl0g')
+  src: url('../fonts/Feather/feather.eot?#iefix-ajbl0g') format('embedded-opentype'), url('../fonts/Feather/feather.ttf?-ajbl0g') format('truetype'), url('../fonts/Feather/feather.woff?-ajbl0g') format('woff'), url('../fonts/Feather/feather.svg?-ajbl0g#feather') format('svg')
+  font-weight: normal
+  font-style: normal
+
+.icon
+  font-family: 'feather'
+  speak: none
+  font-style: normal
+  font-weight: normal
+  font-variant: normal
+  text-transform: none
+  line-height: 1
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+.icon--zoom::before
+  content: "\e036"
+
+.icon--circle-cross::before
+  content: "\e602"
+
+.icon--arrow-right::before
+  content: "\e600"
+
+.icon--arrow-left::before
+  content: "\e601"
+
+html
+  overflow-y: scroll
+
 html,
-body
-  overflow: hidden
-  height: 100%
-
-.container
-  position: relative
-  overflow: hidden
-  overflow-y: scroll
-  width: 100%
-  height: 100%
-  -webkit-overflow-scrolling: touch
-
-.noscroll .container
-  overflow-y: hidden
-
-.slider
-  position: relative
-  z-index: 200
-  width: 100%
-  margin: 0 auto
-  padding: 0 0 7em
-  text-align: center
-  user-select: none
-  -webkit-touch-callout: none
-  -khtml-user-select: none
-
-.slide
-  position: absolute
-  top: 0
-  visibility: hidden
-  width: 100%
-  opacity: 0
-
-.slide--current
-  position: relative
-  z-index: 100
-  visibility: visible
-  opacity: 1
-
-.slide__mover
-  position: relative
-  z-index: 100
-
-.slide__title
-  font-size: 1.75em
-  font-weight: normal
-  margin: 0 auto
-  padding: 1em
-
-.slide__title span
-  font-size: 55%
-  font-weight: bold
-  display: block
-  letter-spacing: 2px
-  text-transform: uppercase
-  // color: #35303d
-  color: #5d526f
-
-.slider__nav
-  position: absolute
-  bottom: 2em
-  width: 100%
-  text-align: center
-
-.button
-  font-size: 1.31em
-  position: relative
-  display: inline-block
-  overflow: hidden
-  margin: 0 25px
+#portfolio
+  font-size: 100%
+  margin: 0
   padding: 0
-  cursor: pointer
-  // color: #5c5edc
-  color: #b21158
-  border: none
-  background: none
-
-.button:focus
-  outline: none
-
-.button:hover
-  color: #fff
-
-.text-hidden
-  position: absolute
-  top: 200%
-
-.button--close
-  font-size: 1.55em
-  position: absolute
-  top: 30px
-  right: 30px
-  margin: 0
-  opacity: 0
-  color: #50505a
-  transition: opacity 0.3s
-
-.content--open .button--close
-  opacity: 1
-
-.zoomer
-  position: relative
-  height: 360px
-
-.flex-center
-  display: flex
-  align-items: center
-  -ms-flex-pack: center
-  justify-content: center
-
-.zoomer__image
-  display: block
-  margin: 0
-  flex: none
-
-.zoomer__area,
-.preview
-  position: absolute
-  top: 50%
-  left: 50%
-  transform: translate3d(-50%, -50%, 0)
-
-.zoomer__area:focus
-  outline: none
-
-.zoomer__area--size-1
-  width: 96px
-  height: 118px
-
-.zoomer__area--size-2
-  width: 112px
-  height: 198px
-
-.zoomer__area--size-3
-  width: 315px
-  height: 200px
-
-.zoomer__area--size-4
-  width: 150px
-  height: 200px
-
-.zoomer__area--size-5
-  width: 315px
-  height: 189px
-
-.preview
-  overflow: hidden
-  background: #18191b
-
-.preview img
-  display: block
-  border-radius: inherit
-  transform: translate3d(0, 0, 0)
-
-.zoomer--active .preview img
-  transform: translate3d(100%, 0, 0)
-
-.rounded
-  border-radius: 15px
-
-.rounded-right
-  border-radius: 0 15px 15px 0
-
-.preview__content
-  position: absolute
-  top: 0
-  left: 100%
-  width: 100%
   height: 100%
-  border-radius: inherit
-
-.content
-  position: fixed
-  z-index: 1000
-  top: 0
-  left: -100%
   overflow: hidden
-  overflow-y: scroll
-  width: 100%
-  height: 100vh
-  background: #18191b
-  -webkit-overflow-scrolling: touch
 
-.content--open
-  left: 0
+#portfolio
+  font-family: 'Avenir', 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif
+  color: #cecece
+  background: #282c34
 
-.content__item
-  position: absolute
-  top: 0
-  display: flex
-  overflow: hidden
-  height: 0
-  min-height: 100%
-  margin: 0 auto
-  padding: 2em 0
-  pointer-events: none
-  opacity: 0
-  color: #fff
-  -ms-flex-align: center
-  align-items: center
+  & a
+    text-decoration: none
+    color: #5c5edc
+    outline: none
 
-.content__item--current
-  pointer-events: auto
-  opacity: 1
+    &:focus
+      color: #ddd
 
-.content__item--reset
-  height: auto
+    &:hover
+      color: #fff
 
-.content h2
-  font-size: 3.5em
-  font-weight: normal
-  margin: 0
+  & #container
+    position: relative
+    overflow: hidden
+    overflow-y: scroll
+    width: 100%
+    height: 100%
+    -webkit-overflow-scrolling: touch
 
-.content h3
-  font-size: 1.95em
-  font-weight: normal
-  margin: 0.25em 0 0.5em
-  color: #685884
+  & .noscroll #container
+    overflow-y: hidden
 
-.content p
-  font-size: 1.25em
-  line-height: 1.5
+  & .slider
+    position: relative
+    z-index: 200
+    width: 100%
+    margin: 0 auto
+    padding: 0 0 7em
+    text-align: center
+    user-select: none
+    -webkit-touch-callout: none
+    -khtml-user-select: none
 
-.content__item-img
-  display: block
-  max-width: 40vw
-  max-height: 80vh
-  transform: translate3d(-120%, 0, 0)
-  flex: none
+    & .slide
+      position: absolute
+      top: 0
+      visibility: hidden
+      width: 100%
+      opacity: 0
 
-.content__item--current .content__item-img
-  transform: translate3d(-10px, 0, 0)
+      & .slide__mover
+        position: relative
+        z-index: 100
 
-.content__item-inner
-  padding: 0 10vw
-  opacity: 0
-  transform: translate3d(0, 50px, 0)
+      & .slide__title
+        font-size: 1.75em
+        font-weight: normal
+        margin: 0 auto
+        padding: 1em
 
-.content__item--current .content__item-inner
-  opacity: 1
-  transform: translate3d(0, 0, 0)
+        & span
+          font-size: 55%
+          font-weight: bold
+          display: block
+          letter-spacing: 2px
+          text-transform: uppercase
+          // color: #35303d
+          color: #5d526f
 
-.zoomer
-  transition: transform 0.5s
-  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1)
+    & .slide--current
+      position: relative
+      z-index: 100
+      visibility: visible
+      opacity: 1
 
-.zoomer.zoomer--notrans
-  transition: none
+    & .slider__nav
+      position: absolute
+      bottom: 2em
+      width: 100%
+      text-align: center
 
-.zoomer__image
-  transition: opacity 0.3s 0.3s
+  & .button
+    font-size: 1.31em
+    position: relative
+    display: inline-block
+    overflow: hidden
+    margin: 0 25px
+    padding: 0
+    cursor: pointer
+    // color: #5c5edc
+    color: #b21158
+    border: none
+    background: none
 
-.zoomer--active .zoomer__image
-  opacity: 0
-  transition-delay: 0s
+    &:focus
+      outline: none
 
-.preview img
-  transition: transform 0.6s 0.3s
-  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+    &:hover
+      color: #fff
 
-.zoomer--active .preview img
-  transition: transform 0.3s
+  & .text-hidden
+    position: absolute
+    top: 200%
 
-.content
-  transition: left 0s
+  & .button--close
+    font-size: 1.55em
+    position: absolute
+    top: 30px
+    right: 30px
+    margin: 0
+    opacity: 0
+    color: #50505a
+    transition: opacity 0.3s
 
-.content__item
-  transition: opacity 0s
+  & .content--open .button--close
+    opacity: 1
 
-.content,
-.content__item
-  transition-delay: 0.3s
+  & .zoomer
+    position: relative
+    height: 360px
+    transition: transform 0.5s
+    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1)
 
-.content--open,
-.content__item--current
-  transition: none
+    &.zoomer--notrans
+      transition: none
 
-.content__item-img
-  transition: transform 0.4s
-  transition-timing-function: cubic-bezier(0.7, 1, 0.8, 1)
+  & .flex-center
+    display: flex
+    align-items: center
+    -ms-flex-pack: center
+    justify-content: center
 
-.content__item--current .content__item-img
-  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
-  transition-duration: 1s
-
-.content__item-inner
-  transition: transform 0.6s, opacity 0.3s
-  transition-timing-function: cubic-bezier(0.7, 1, 0.8, 1), ease
-
-.content__item--current .content__item-inner
-  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1), ease
-  transition-duration: 1.7s
-
-@media screen and (max-width: 50em)
-  .content__item
+  & .zoomer__image
     display: block
+    margin: 0
+    flex: none
+    transition: opacity 0.3s 0.3s
 
-  .content__item-img
-    max-width: calc(100% - 80px)
-    max-height: 70vh
+  & .zoomer__area,
+  & .preview
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate3d(-50%, -50%, 0)
 
-  .content h2
-    font-size: 3em
+  & .zoomer__area:focus
+    outline: none
 
-  .content__item-inner
-    font-size: 82%
-    padding: 4em 3em 2em
+  & .zoomer__area--size-1
+    width: 96px
+    height: 118px
+
+  & .zoomer__area--size-2
+    width: 112px
+    height: 198px
+
+  & .zoomer__area--size-3
+    width: 315px
+    height: 200px
+
+  & .zoomer__area--size-4
+    width: 150px
+    height: 200px
+
+  & .zoomer__area--size-5
+    width: 315px
+    height: 189px
+
+  & .preview
+    overflow: hidden
+    background: #18191b
+
+    & img
+      display: block
+      border-radius: inherit
+      transform: translate3d(0, 0, 0)
+      transition: transform 0.6s 0.3s
+      transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+
+  & .zoomer--active
+    & .preview img
+      transform: translate3d(100%, 0, 0)
+      transition: transform 0.3s
+
+    & .zoomer__image
+      opacity: 0
+      transition-delay: 0s
+
+  & .rounded
+    border-radius: 15px
+
+  & .rounded-right
+    border-radius: 0 15px 15px 0
+
+  & .preview__content
+    position: absolute
+    top: 0
+    left: 100%
+    width: 100%
+    height: 100%
+    border-radius: inherit
+
+  & .content
+    position: fixed
+    z-index: 1000
+    top: 0
+    left: -100%
+    overflow: hidden
+    overflow-y: scroll
+    width: 100%
+    height: 100vh
+    background: #18191b
+    -webkit-overflow-scrolling: touch
+    transition: left 0s
+
+    & h2
+      font-size: 3.5em
+      font-weight: normal
+      margin: 0
+
+      @media screen and (max-width: 50em)
+        font-size: 3em
+
+    & h3
+      font-size: 1.95em
+      font-weight: normal
+      margin: 0.25em 0 0.5em
+      color: #685884
+
+    & p
+      font-size: 1.25em
+      line-height: 1.5
+
+  & .content--open
+    left: 0
+
+  & .content__item
+    position: absolute
+    top: 0
+    display: flex
+    overflow: hidden
+    height: 0
+    min-height: 100%
+    margin: 0 auto
+    padding: 2em 0
+    pointer-events: none
+    opacity: 0
+    color: #fff
+    -ms-flex-align: center
+    align-items: center
+    transition: opacity 0s
+
+    @media screen and (max-width: 50em)
+      display: block
+
+    & .content__item-inner
+      padding: 0 10vw
+      opacity: 0
+      transform: translate3d(0, 50px, 0)
+      transition: transform 0.6s, opacity 0.3s
+      transition-timing-function: cubic-bezier(0.7, 1, 0.8, 1), ease
+
+      @media screen and (max-width: 50em)
+        font-size: 82%
+        padding: 4em 3em 2em
+
+    & .content__item-img
+      display: block
+      max-width: 40vw
+      max-height: 80vh
+      transform: translate3d(-120%, 0, 0)
+      flex: none
+      transition: transform 0.4s
+      transition-timing-function: cubic-bezier(0.7, 1, 0.8, 1)
+
+      @media screen and (max-width: 50em)
+        max-width: calc(100% - 80px)
+        max-height: 70vh
+
+  & .content__item--current
+    pointer-events: auto
+    opacity: 1
+
+    & .content__item-img
+      transform: translate3d(-10px, 0, 0)
+      transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+      transition-duration: 1s
+
+    & .content__item-inner
+      opacity: 1
+      transform: translate3d(0, 0, 0)
+      transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1), ease
+      transition-duration: 1.7s
+
+  & .content__item--reset
+    height: auto
+
+  & .content,
+  & .content__item
+    transition-delay: 0.3s
+
+  & .content--open,
+  & .content__item--current
+    transition: none
+
+.no-js #portfolio
+  & .slider
+    display: none
+
+  & .content
+    position: initial
+    overflow: initial
+    background: #282c34
+
+    & .content__item
+      position: initial
+      opacity: 1
+      height: initial
+
+      & img.lazyload
+        display: none
+
+      & img
+        transform: initial
+
+      & .content__item-inner
+        transform: initial
+        opacity: 1

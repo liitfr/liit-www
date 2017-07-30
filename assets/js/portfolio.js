@@ -1,5 +1,6 @@
-import * as dynamics from 'dynamics.js';
+import dynamics from 'dynamics.js';
 import lazySizes from 'lazysizes';
+import Hammer from 'hammerjs';
 
 const bodyEl = document.body;
 const onEndTransition = function onEndTransition(el, callback) {
@@ -22,7 +23,7 @@ let win = { width: window.innerWidth, height: window.innerHeight };
 let lockScroll = false;
 let xscroll;
 let yscroll;
-const scrollContainer = document.querySelector('.container');
+const scrollContainer = document.querySelector('#container');
 // the main slider and its items
 const sliderEl = document.querySelector('.slider');
 const items = [].slice.call(sliderEl.querySelectorAll('.slide'));
@@ -61,6 +62,8 @@ let requiredView = currentView;
 let requiredContent = currentContent;
 // First time page is rendered
 let firstRendering = true;
+// Direction when swiping
+let direction;
 
 // from http://www.sberry.me/articles/javascript-event-throttling-debouncing
 function throttle(fn, delay) {
@@ -107,9 +110,11 @@ function initEvents() {
 
   // navigation
   navRightCtrl.addEventListener('click', () => {
+    direction = 'R';
     window.location.hash = `#slider/${contentList[current === itemsTotal - 1 ? 0 : current + 1]}`;
   });
   navLeftCtrl.addEventListener('click', () => {
+    direction = 'L';
     window.location.hash = `#slider/${contentList[current === 0 ? itemsTotal - 1 : current - 1]}`;
   });
 
@@ -132,9 +137,11 @@ function initEvents() {
     if (!isOpen) {
       switch (keyCode) {
         case 37:
+          direction = 'L';
           window.location.hash = `#slider/${contentList[current === 0 ? itemsTotal - 1 : current - 1]}`;
           break;
         case 39:
+          direction = 'R';
           window.location.hash = `#slider/${contentList[current === itemsTotal - 1 ? 0 : current + 1]}`;
           break;
         case 13:
@@ -153,6 +160,26 @@ function initEvents() {
       }
     }
   });
+
+  // swipes
+  const hammertime = new Hammer(sliderEl);
+  hammertime.on('swipeleft', () => {
+    direction = 'R';
+    window.location.hash = `#slider/${contentList[current === itemsTotal - 1 ? 0 : current + 1]}`;
+  });
+  hammertime.on('swiperight', () => {
+    direction = 'L';
+    window.location.hash = `#slider/${contentList[current === 0 ? itemsTotal - 1 : current - 1]}`;
+  });
+
+  // click or tap on screens
+  const screens = document.querySelectorAll('.zoomer__image, .preview');
+  let i;
+  for (i = 0; i < screens.length; i += 1) {
+    screens[i].addEventListener('click', () => {
+      window.location.hash = `#zoom/${currentContent}`;
+    });
+  }
 }
 
 // disallow scrolling (on the scrollContainer)
@@ -266,24 +293,17 @@ function closeContent() {
 }
 
 // navigate the slider
-function navigate(dir) {
+function navigate() {
   const itemCurrent = items[current];
   const currentEl = itemCurrent.querySelector('.slide__mover');
   const currentTitleEl = itemCurrent.querySelector('.slide__title');
 
-  // update new current value
-  if (dir === 'right') {
-    current = current < itemsTotal - 1 ? current + 1 : 0;
-  } else {
-    current = current > 0 ? current - 1 : itemsTotal - 1;
-  }
-
-  const itemNext = items[current];
+  const itemNext = items[required];
   const nextEl = itemNext.querySelector('.slide__mover');
   const nextTitleEl = itemNext.querySelector('.slide__title');
 
   // animate the current element out
-  dynamics.animate(currentEl, { opacity: 0, translateX: dir === 'right' ? (-1 * currentEl.offsetWidth) / 2 : currentEl.offsetWidth / 2, rotateZ: dir === 'right' ? -10 : 10 }, {
+  dynamics.animate(currentEl, { opacity: 0, translateX: direction === 'R' ? (-1 * currentEl.offsetWidth) / 2 : currentEl.offsetWidth / 2, rotateZ: direction === 'R' ? -10 : 10 }, {
     type: dynamics.spring,
     duration: 2000,
     friction: 600,
@@ -293,7 +313,7 @@ function navigate(dir) {
   });
 
   // animate the current title out
-  dynamics.animate(currentTitleEl, { translateX: dir === 'right' ? -250 : 250, opacity: 0 }, {
+  dynamics.animate(currentTitleEl, { translateX: direction === 'R' ? -250 : 250, opacity: 0 }, {
     type: dynamics.bezier,
     points: [{ x: 0, y: 0, cp: [{ x: 0.2, y: 1 }] }, { x: 1, y: 1, cp: [{ x: 0.3, y: 1 }] }],
     duration: 450,
@@ -301,7 +321,7 @@ function navigate(dir) {
 
   // set the right properties for the next element to come in
   dynamics.css(itemNext, { opacity: 1, visibility: 'visible' });
-  dynamics.css(nextEl, { opacity: 0, translateX: dir === 'right' ? nextEl.offsetWidth / 2 : (-1 * nextEl.offsetWidth) / 2, rotateZ: dir === 'right' ? 10 : -10 });
+  dynamics.css(nextEl, { opacity: 0, translateX: direction === 'R' ? nextEl.offsetWidth / 2 : (-1 * nextEl.offsetWidth) / 2, rotateZ: direction === 'R' ? 10 : -10 });
 
   // animate the next element in
   dynamics.animate(nextEl, { opacity: 1, translateX: 0 }, {
@@ -315,7 +335,7 @@ function navigate(dir) {
   });
 
   // set the right properties for the next title to come in
-  dynamics.css(nextTitleEl, { translateX: dir === 'right' ? 250 : -250, opacity: 0 });
+  dynamics.css(nextTitleEl, { translateX: direction === 'R' ? 250 : -250, opacity: 0 });
   // animate the next title in
   dynamics.animate(nextTitleEl, { translateX: 0, opacity: 1 }, {
     type: dynamics.bezier,
@@ -377,11 +397,7 @@ function router() {
       items[required].classList.add('slide--current');
     } else if (currentView === 'slider') {
       if (naturalRequest) {
-        if (required - current === 1 || required - current === -itemsTotal + 1) {
-          navigate('right');
-        } else {
-          navigate('left');
-        }
+        navigate();
       } else {
         switchSlide();
       }

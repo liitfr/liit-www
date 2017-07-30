@@ -1,12 +1,12 @@
 /* eslint no-console: ["error", { allow: ["info", "warn", "error"] }] */
 /* eslint no-param-reassign: ["error", { "props": true, "ignorePropertyModificationsFor": ["reg"] }] */
 
-import * as FastClick from 'fastclick';
-import * as LogStyle from 'log-with-style';
-import * as TweenLite from 'TweenLite';
-import * as AttrPlugin from 'AttrPlugin';
-import * as SnackBar from 'node-snackbar';
-import * as Turbolinks from 'turbolinks';
+import FastClick from 'fastclick';
+import LogStyle from 'log-with-style';
+import TweenLite from 'TweenLite';
+import AttrPlugin from 'AttrPlugin';
+import SnackBar from 'node-snackbar';
+import Turbolinks from 'turbolinks';
 
 // -----------------------------------------------------------------------------
 // Turbolinks
