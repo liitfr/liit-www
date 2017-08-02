@@ -42,11 +42,8 @@
 .icon--arrow-left::before
   content: "\e601"
 
-html
-  overflow-y: scroll
-
-html,
 #portfolio
+  overflow-y: scroll
   font-size: 100%
   margin: 0
   padding: 0
@@ -280,6 +277,10 @@ html,
     & p
       font-size: 1.25em
       line-height: 1.5
+
+    & p::selection
+      color: #ff358b
+      background: transparent
 
   & .content--open
     left: 0

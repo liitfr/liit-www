@@ -3,12 +3,14 @@ const cssStandards = require('spike-css-standards');
 const pageId = require('spike-page-id');
 const { UglifyJsPlugin, ModuleConcatenationPlugin } = require('webpack').optimize;
 const { ProvidePlugin } = require('webpack');
+const sugarml = require('sugarml');
 
 module.exports = {
   devtool: false,
   reshape: htmlStandards({
     locals: ctx => ({ pageId: pageId(ctx) }),
-    minify: true,
+    parser: sugarml,
+    minify: { minifySvg: false },
   }),
   postcss: cssStandards({
     minify: true,

@@ -8,6 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const { _ } = require('lodash');
 const { ProvidePlugin } = require('webpack');
+const sugarml = require('sugarml');
 
 const entry = Object.assign({}, ..._.map(_.filter(fs.readdirSync('./assets/js/'), file => file.charAt(0) !== '_'), file =>
   _.fromPairs([[`js/${path.parse(file).name}`, `./assets/js/${file}`]])));
@@ -21,6 +22,7 @@ module.exports = {
   ignore: ['**/layout.sgr', '**/_*', '.*', 'readme.md', 'yarn.lock', 'todo.md', 'package-lock.json', 'LICENSE.md', '**/_*/**/*'],
   reshape: htmlStandards({
     locals: ctx => ({ pageId: pageId(ctx) }),
+    parser: sugarml,
   }),
   postcss: cssStandards(),
   babel: jsStandards(),
