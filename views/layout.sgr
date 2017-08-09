@@ -110,9 +110,9 @@ html.no-js(lang="fr")
   body(id="{{ pageId }}")
 
     block(name="content")
-      #container
+      #container(class="{{ pageId === 'portfolio' ? 'fixed-height' : ' ' }}")
 
-        header
+        header(class="{{ pageId === 'index' ? 'fixed-height' : ' ' }}")
           block(name="header")
             #logo(data-turbolinks-permanent)
               svg(viewBox="0 0 200 200")

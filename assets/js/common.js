@@ -1,5 +1,8 @@
 /* eslint no-console: ["error", { allow: ["info", "warn", "error"] }] */
-/* eslint no-param-reassign: ["error", { "props": true, "ignorePropertyModificationsFor": ["reg"] }] */
+/* eslint no-param-reassign: ["error", {
+     "props": true,
+     "ignorePropertyModificationsFor": ["reg"]
+   }] */
 
 import FastClick from 'fastclick';
 import LogStyle from 'log-with-style';
@@ -14,9 +17,24 @@ import Turbolinks from 'turbolinks';
 Turbolinks.start();
 
 // -----------------------------------------------------------------------------
-// FastClick
+// Avoid page jumps when url bar appears / disappears on mobile
 
-FastClick.attach(document.body);
+function calculateHeight() {
+  const fixedHeightElems = document.getElementsByClassName('fixed-height');
+  [].forEach.call(fixedHeightElems, (el) => {
+    el.style.height = `${window.innerHeight}px`;
+  });
+}
+
+window.onresize = calculateHeight;
+
+// -----------------------------------------------------------------------------
+// when a page loads
+
+document.addEventListener('turbolinks:load', () => {
+  FastClick.attach(document.body);
+  calculateHeight();
+});
 
 // -----------------------------------------------------------------------------
 // Console message
@@ -42,7 +60,7 @@ const close = 'Fermer';
 const refresh = 'Rafraîchir';
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
+  document.addEventListener('turbolinks:load', () => {
     function updateOnlineStatus() {
       SnackBar.show({
         text: navigator.onLine ? onlineMsg : offlineMsg,

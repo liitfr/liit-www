@@ -140,6 +140,8 @@ if (!Window.waves) {
   const SEPARATION = 100;
   const AMOUNTX = 50;
   const AMOUNTY = 50;
+  const AMOUNTXY = AMOUNTX * AMOUNTY;
+  const wavesWorker = new Worker('/js/wavesWorker.js');
   let camera;
   let scene;
   let particles;
@@ -149,6 +151,14 @@ if (!Window.waves) {
   let mouseY = 0;
   let windowHalfX = window.innerWidth / 2;
   let windowHalfY = window.innerHeight / 2;
+
+  wavesWorker.onmessage = (e) => {
+    for (let i = 0; i < AMOUNTXY; i += 1) {
+      particles[i].position.y = e.data[i].position.y;
+      particles[i].scale.x = e.data[i].scale.x;
+      particles[i].scale.y = e.data[i].scale.y;
+    }
+  };
 
   const onWindowResize = () => {
     windowHalfX = window.innerWidth / 2;
@@ -182,7 +192,6 @@ if (!Window.waves) {
   };
 
   const init = () => {
-    // containerWaves = document.querySelector('#waves');
     camera = new THREE.PerspectiveCamera(75,
       window.innerWidth / window.innerHeight, 1, 10000);
     camera.position.z = 1000;
@@ -226,18 +235,7 @@ if (!Window.waves) {
     camera.position.x += (mouseX - camera.position.x) * 0.05;
     camera.position.y += (-mouseY - camera.position.y) * 0.05;
     camera.lookAt(scene.position);
-    let i = 0;
-    for (let ix = 0; ix < AMOUNTX; ix += 1) {
-      for (let iy = 0; iy < AMOUNTY; iy += 1) {
-        particle = particles[i];
-        i += 1;
-        particle.position.y = (Math.sin((ix + count) * 0.3) * 50) +
-          (Math.sin((iy + count) * 0.5) * 50);
-        particle.scale.x = ((Math.sin((ix + count) * 0.3) + 1) * 4) +
-          ((Math.sin((iy + count) * 0.5) + 1) * 4);
-        particle.scale.y = particle.scale.x;
-      }
-    }
+    wavesWorker.postMessage({ count });
     renderer.render(scene, camera);
     count += 0.1;
   };

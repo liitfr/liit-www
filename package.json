@@ -1,7 +1,7 @@
 {
   "name": "liit-www",
   "description": "LIIT website",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "author": "liitfr",
   "ava": {
     "verbose": "true"
@@ -19,13 +19,16 @@
     "node-snackbar": "^0.1.7",
     "reshape-standard": "^3.1.0",
     "sanitize.css": "^5.0.0",
-    "spike": "^2.0.1",
-    "spike-css-standards": "^2.0.1",
+    "spike": "^2.2.0",
+    "spike-css-standards": "^3.0.0",
     "spike-js-standards": "^2.0.2",
     "spike-page-id": "^1.0.0",
     "sugarml": "^0.6.0",
+    "sugarss": "^1.0.0",
     "three": "^0.86.0",
-    "turbolinks": "^5.0.3"
+    "turbolinks": "^5.0.3",
+    "webpack": "^3.4.1",
+    "workbox-build": "^1.2.0"
   },
   "devDependencies": {
     "ava": "^0.21.0",
@@ -51,11 +54,10 @@
     "q": "^1.5.0",
     "rimraf": "^2.6.1",
     "snazzy": "^7.0.0",
-    "spike-core": "^2.0.0",
+    "spike-core": "^2.2.0",
     "standard": "^10.0.2",
     "stylelint-config-standard": "^17.0.0",
-    "vinyl-ftp": "^0.6.0",
-    "workbox-build": "^1.0.1"
+    "vinyl-ftp": "^0.6.0"
   },
   "homepage": "https://github.com/liitfr/liit-www",
   "main": "app.js",
