@@ -1,8 +1,14 @@
 extends(src="../layout.sgr")
   block(name="meta")
     title verboden forbidden verboten interdit prohibido | LIIT
-    meta(name="description" content="Damned ! L'accès à cette ressource n'est pas authorisé !")
+    meta(name="description" content="Damned ! L'accès à cette ressource n'est pas autorisé !")
     meta(name="robots" content="noindex, follow")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
-  block(name="content")
-    h2 403
+  block(name="main")
+    #error
+      p#detail Damned ! L'accès à cette ressource n'est pas autorisé
+      h2#code Erreur 403
+      p#link
+        span Retourner à l'
+        a(href="/") accueil

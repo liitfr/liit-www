@@ -86,6 +86,7 @@ if ('serviceWorker' in navigator) {
                   actionTextColor: '#d2de2f',
                   onActionClick: () => { location.reload(); },
                   customClass: 'custom-snackbar',
+                  duration: 7500,
                 });
               } else {
                 console.info(availableMsg);
