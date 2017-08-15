@@ -1,0 +1,23 @@
+extends(src="layout.sgr")
+  block(name="before-main")
+    #menu
+      nav
+        ul
+          a(href="/")
+            li Home
+          a(href="/portfolio.html")
+            li Portfolio
+          a(href="/technos.html")
+            li.active Technos
+          a(href="/services.html")
+            li Services
+          a(href="/blog.html")
+            li Blog
+          a(href="/about.html")
+            li À propos
+
+  block(name="after-main")
+    a#goto-top(href="#0") Top
+
+  block(name="javascript")
+    script(src="/js/pages.js" defer)

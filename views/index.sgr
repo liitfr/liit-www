@@ -48,8 +48,9 @@ extends(src="layout.sgr")
           span Développement d'applications fonctionnelles et ergonomiques
       #blog.soon
         span Blog
-      #tech.soon
-        span Technos
+      #tech
+        a(href="/technos.html")
+          span Technos
       #data
         div
           h3 Data

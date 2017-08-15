@@ -20,7 +20,7 @@ module.exports = {
     html: '*(**/)*.sgr',
     css: '*(**/)*.sss',
   },
-  ignore: ['**/layout.sgr', '**/_*', '.*', 'readme.md', 'yarn.lock', 'todo.md', 'package-lock.json', 'LICENSE.md', '**/_*/**/*'],
+  ignore: ['**/layout.sgr', '**/pages.sgr', '**/_*', '.*', 'readme.md', 'yarn.lock', 'todo.md', 'package-lock.json', 'LICENSE.md', '**/_*/**/*'],
   reshape: htmlStandards({
     locals: ctx => ({ pageId: pageId(ctx) }),
     parser: sugarml,

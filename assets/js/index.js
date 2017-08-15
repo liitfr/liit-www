@@ -217,10 +217,10 @@ if (!Window.waves) {
         scene.add(particle);
       }
     }
-    renderer = new THREE.CanvasRenderer();
+    renderer = new THREE.CanvasRenderer({ alpha: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x282c34, 1);
+    renderer.setClearColor(0x000000, 0);
     containerWaves.appendChild(renderer.domElement);
     document.addEventListener('mousemove', onDocumentMouseMove, false);
     document.addEventListener('touchstart', onDocumentTouchStart, false);

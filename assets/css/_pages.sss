@@ -1,0 +1,168 @@
+#technos,
+#about,
+#services
+  background: #282c34
+  color: #fff
+  font-family: 'Hind Madurai', sans-serif
+  font-size: 1.3em
+
+  @media screen and (max-width: 27em)
+    font-size: 1.1em
+
+  & #container
+    & header
+      position: fixed
+      z-index: 3
+      width: 16vw
+      height: 16vw
+      min-width: calc(120px + 6vw)
+      min-height: calc(120px + 6vw)
+      top: 0
+      left: 0
+
+      @media screen and (max-width: 27em)
+        width: 100%
+        min-height: calc(80px + 6vw)
+        background: rgba(40, 44, 52, 0.8)
+        backdrop-filter: blur(5px)
+        box-shadow: 2px 4px 8px #271d1d
+
+      & #logo svg
+        & .polylogo
+          fill: #282c34
+
+          @media screen and (max-width: 27em)
+            fill: #b21158
+
+        & #brand
+          fill: #b21158
+
+          @media screen and (max-width: 27em)
+            fill: #282c34
+
+    & #menu
+      position: fixed
+      top: 0
+      left: 0
+      height: 100%
+      min-height: 100vh
+      overflow-y: auto
+      width: 16vw
+      min-width: calc(120px + 6vw)
+      background: #282c34
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b21158' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E")
+
+      @media screen and (max-width: 27em)
+        display: none
+
+      & nav
+        margin-top: 16vw
+
+        @media screen and (max-width: 1198px)
+          margin-top: calc(120px + 6vw)
+
+        & ul
+          padding-left: 0
+
+          & a
+            color: inherit
+            text-decoration: none
+
+            & li
+              height: 9vh
+              line-height: 9vh
+              text-align: center
+              font-size: 30px
+              font-weight: 800
+              font-family: 'Raleway', Arial, sans-serif
+              text-transform: uppercase
+
+              @media screen and (max-width: 1241px)
+                font-size: 25px
+
+              &:hover,
+              &.active
+                background: #282c34
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23b21158' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")
+
+    & main
+      max-width: 768px
+      margin: auto
+      margin-bottom: 4em
+
+      @media screen and (max-width: 1241px)
+        margin-left: calc(120px + 10vw)
+        margin-right: 20px
+
+      @media screen and (max-width: 27em)
+        margin: 20px
+
+      & h1
+        font-family: 'Raleway', Arial, sans-serif
+        color: #b21158
+        font-size: 2.5em
+        height: 16vw
+        min-height: calc(120px + 6vw)
+        display: inline-flex
+        align-items: center
+        margin: 0
+
+        &::selection
+          color: #282c34
+          background: #ff358b
+
+        @media screen and (max-width: 27em)
+          margin-top: 16vw
+          font-size: 2em
+
+      & > p:first-of-type
+        margin-top: 0
+
+      & p::selection
+        color: #ff358b
+        background: transparent
+
+    & #goto-top
+      display: inline-block
+      height: 40px
+      width: 40px
+      position: fixed
+      bottom: 40px
+      right: 10px
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05)
+      overflow: hidden
+      text-indent: 100%
+      white-space: nowrap
+      background: rgba(178, 17, 88, 0.8) url(../img/pages/top-arrow.svg) no-repeat center 50%
+      visibility: hidden
+      opacity: 0
+      transition: opacity 0.3s 0s, visibility 0s 0.3s
+
+      @media only screen and (min-width: 768px)
+        right: 20px
+        bottom: 20px
+
+      @media only screen and (min-width: 1024px)
+        height: 60px
+        width: 60px
+        right: 30px
+        bottom: 30px
+
+      @media screen and (max-width: 27em)
+        display: none
+
+      &.is-visible,
+      &.fade-out
+        transition: opacity 0.3s 0s, visibility 0s 0s
+
+      &.is-visible
+        visibility: visible
+        opacity: 1
+
+      &.fade-out
+        opacity: 0.5
+
+      &:hover
+        transition: opacity 0.3s 0s, visibility 0s 0s
+        background-color: #b21158
+        opacity: 1
