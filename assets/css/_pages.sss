@@ -1,7 +1,7 @@
 #technos,
 #about,
-#services
-  background: #282c34
+#services,
+#web
   color: #fff
   font-family: 'Hind Madurai', sans-serif
   font-size: 1.3em
@@ -23,23 +23,99 @@
       @media screen and (max-width: 27em)
         width: 100%
         min-height: calc(80px + 6vw)
-        background: rgba(40, 44, 52, 0.8)
-        backdrop-filter: blur(5px)
-        box-shadow: 2px 4px 8px #271d1d
 
-      & #logo svg
+      & #logo
         & .polylogo
           fill: #282c34
+          transition: fill 0.35s
 
           @media screen and (max-width: 27em)
             fill: #b21158
 
         & #brand
           fill: #b21158
+          transition: fill 0.35s
 
           @media screen and (max-width: 27em)
             fill: #282c34
 
+        @media screen and (max-width: 27em)
+          &.beyond-menu
+            & .polylogo
+              fill: #fff !important
+
+            & #brand
+              fill: #b21158 !important
+
+      & #glass
+        display: none
+
+        @media screen and (max-width: 27em)
+          z-index: -1
+          display: initial
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%
+          background: rgba(40, 44, 52, 0.8)
+          backdrop-filter: blur(5px)
+          box-shadow: 2px 4px 8px #271d1d
+          transition: background 0.35s, backdrop-filter 0s, box-shadow 0s
+
+          &.behind-menu
+            background: transparent
+            box-shadow: initial
+            backdrop-filter: initial
+
+      & #hamburger
+        display: none
+
+        @media screen and (max-width: 27em)
+          display: initial
+          position: absolute
+          top: 50%
+          right: 20px
+          height: 27px
+          width: 35px
+          cursor: pointer
+          z-index: 100
+          transform: translateY(-50%)
+          transition: opacity 0.25s ease
+
+          &:hover
+            opacity: 0.7
+
+          & span
+            background: #b21158
+            height: 5px
+            width: 100%
+            position: absolute
+            top: 0
+            left: 0
+            cursor: pointer
+            transition: all 0.35s ease
+
+            &:nth-of-type(2)
+              top: 11px
+
+            &:nth-of-type(3)
+              top: 22px
+
+          &.active
+            & span
+              background: #fff
+
+              &:nth-of-type(1)
+                transform: translateY(11px) translateX(0) rotate(45deg)
+
+              &:nth-of-type(2)
+                opacity: 0
+
+              &:nth-of-type(3)
+                transform: translateY(-11px) translateX(0) rotate(-45deg)
+
+    // From https://codepen.io/PaulVanO/pen/XJYGNQ
     & #menu
       position: fixed
       top: 0
@@ -53,7 +129,17 @@
       background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b21158' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E")
 
       @media screen and (max-width: 27em)
-        display: none
+        width: 100%
+        height: 0%
+        opacity: 0
+        visibility: hidden
+        transition: opacity 0.35s, visibility 0.35s, height 0.35s
+        overflow: hidden
+
+        &.open
+          opacity: 0.9
+          visibility: visible
+          height: 100%
 
       & nav
         margin-top: 16vw
@@ -61,8 +147,17 @@
         @media screen and (max-width: 1198px)
           margin-top: calc(120px + 6vw)
 
+        @media screen and (max-width: 27em)
+          position: relative
+          top: 50%
+          transform: translateY(-50%)
+          margin-top: 0
+
         & ul
           padding-left: 0
+
+          @media screen and (max-width: 27em)
+            margin: 0
 
           & a
             color: inherit
@@ -97,31 +192,41 @@
       @media screen and (max-width: 27em)
         margin: 20px
 
-      & h1
+      & h1,
+      & h2,
+      & h3
         font-family: 'Raleway', Arial, sans-serif
         color: #b21158
-        font-size: 2.5em
+
+        &::selection
+          color: #282c34
+          background: #ff358b
+
+      & strong
+        color: #282c34
+        background: #ff358b
+
+      & h1
+        font-size: 2.8em
         height: 16vw
         min-height: calc(120px + 6vw)
         display: inline-flex
         align-items: center
         margin: 0
 
-        &::selection
-          color: #282c34
-          background: #ff358b
-
         @media screen and (max-width: 27em)
           margin-top: 16vw
-          font-size: 2em
+          font-size: 2.3em
 
-      & > p:first-of-type
-        margin-top: 0
+      & p
+        &:first-of-type
+          margin-top: 0
 
-      & p::selection
-        color: #ff358b
-        background: transparent
+        &::selection
+          color: #ff358b
+          background: transparent
 
+    // From https://codyhouse.co/gem/back-to-top/
     & #goto-top
       display: inline-block
       height: 40px
@@ -138,15 +243,15 @@
       opacity: 0
       transition: opacity 0.3s 0s, visibility 0s 0.3s
 
-      @media only screen and (min-width: 768px)
-        right: 20px
-        bottom: 20px
-
       @media only screen and (min-width: 1024px)
         height: 60px
         width: 60px
         right: 30px
         bottom: 30px
+
+      @media only screen and (min-width: 768px)
+        right: 20px
+        bottom: 20px
 
       @media screen and (max-width: 27em)
         display: none

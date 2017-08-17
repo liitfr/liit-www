@@ -472,7 +472,9 @@ init();
 // first rendering has been done.
 firstRendering = false;
 
+// -----------------------------------------------------------------------------
 // config LazySizes
+
 Object.assign(lazySizes.cfg, {
   preloadAfterLoad: true,
 });

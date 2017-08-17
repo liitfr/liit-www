@@ -1,20 +1,29 @@
 extends(src="layout.sgr")
+  block(name="header" type="append")
+    #hamburger(data-turbolinks-permanent)
+      span
+      span
+      span
+    #glass(data-turbolinks-permanent)
+
   block(name="before-main")
-    #menu
+    #menu.fixed-height(data-turbolinks-permanent)
       nav
         ul
           a(href="/")
-            li Home
+            li(class="{{ pageId === 'index' ? 'active' : ' ' }}") Home
           a(href="/portfolio.html")
-            li Portfolio
-          a(href="/technos.html")
-            li.active Technos
-          a(href="/services.html")
-            li Services
-          a(href="/blog.html")
-            li Blog
-          a(href="/about.html")
-            li À propos
+            li(class="{{ pageId === 'portfolio' ? 'active' : ' ' }}") Portfolio
+          // a(href="/technos.html")
+          //   li(class="{{ pageId === 'technos' ? 'active' : ' ' }}") Technos
+          // a(href="/services.html")
+          //   li(class="{{ pageId === 'services' ? 'active' : ' ' }}") Services
+          a(href="/web.html")
+            li(class="{{ pageId === 'web' ? 'active' : ' ' }}") Web
+          // a(href="/blog.html")
+          //   li(class="{{ pageId === 'blog' ? 'active' : ' ' }}") Blog
+          // a(href="/about.html")
+          //   li(class="{{ pageId === 'about' ? 'active' : ' ' }}") À propos
 
   block(name="after-main")
     a#goto-top(href="#0") Top
