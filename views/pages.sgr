@@ -22,8 +22,8 @@ extends(src="layout.sgr")
             li(class="{{ pageId === 'web' ? 'active' : ' ' }}") Web
           // a(href="/blog.html")
           //   li(class="{{ pageId === 'blog' ? 'active' : ' ' }}") Blog
-          // a(href="/about.html")
-          //   li(class="{{ pageId === 'about' ? 'active' : ' ' }}") À propos
+          a(href="/about.html")
+            li(class="{{ pageId === 'about' ? 'active' : ' ' }}") À propos
 
   block(name="after-main")
     a#goto-top(href="#0") Top

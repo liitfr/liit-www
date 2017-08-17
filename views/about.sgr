@@ -1,0 +1,20 @@
+extends(src="pages.sgr")
+  block(name="meta")
+    title À propos | LIIT
+    meta(name="description" content="Je m'appelle Mathias Hoffmann.")
+    meta(name="robots" content="index, follow")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+  block(name="main")
+    h1 À propos
+    p Je m'appelle Mathias Hoffmann.
+    p Je suis ingénieur Miage-iste spécialisé en informatique décisionnelle (BI pour Business Intelligence). À ce titre, j'ai travaillé de 2008 à 2015 en société de services en tant que consultant, successivement pour Sopra Group puis pour Logica, devenues respectivement Sopra Steria et CGI. J'intervenais auprès de leurs clients principalement en qualité d'assistant à la maîtrise d'ouvrage ou en celle de maître d'œuvre.
+    p J'ai démissionné à deux reprises.
+    p La première fois, pour un voyage improbable à vélo en solitaire qui me mena de la côte atlantique française jusqu'en Inde en passant par la Route de la soie et l'Asie Centrale. J'y ai développé le goût de l'effort, l'amour des montagnes et des grands espaces, et la sensation de solitude et de vanité qu'ils nous confèrent. Je pratique l'alpinisme et l'escalade, et j'espère un jour pouvoir découvrir la voile.
+    p La deuxième fois, lorsque j'ai compris que je ne serais jamais dans mon élément dans ce type de société. Vouloir trouver son chemin n'est pas une entreprise simple et à l'issue certaine ...
+    p En 2015, voulant découvrir une autre vie, je suis devenu coursier à vélo à plein temps. C'est un métier superbe exercé par des personnes formidables. Mais c'est aussi un métier ingrat, punisseur, qui dicte la difficulté d'une vie ou l'acte rémunérateur est effectué avec son corps, devenu alors machine. Les watts et les joules. La fatigue.
+    p L'informatique me manquait trop ... Aujourd'hui je travaille donc en tant que freelance Full Stack, animé par les plaisirs de créativité et de polyvalence offerts par les  architectures & langages de dernière génération.
+    p J'admire les personnes passionnées, qui font preuve d'un sens de l'aventure et d'un esprit d'engagement et d'entreprise. À mon humble niveau, je tâche de cultiver moi-même ces traits de caractères.
+    strong Si vous êtes faits de ce bois, j'adorerais travailler à vos côtés.
+    p Je peux vous accompagner dans la concrétisation de votre projet, du conseil jusqu'à la réalisation. Mon caractère me pousse à la probité : les solutions ou technologies que je vous proposerai seront toujours celles qui me paraitront les plus cohérentes pour répondre à vos objectifs tout en respectant vos contraintes.
+    p En devenant indépendant, j'ai choisi de placer mes priorité sur la qualité des expériences professionnelles, les rencontres enrichissantes, et la collaboration d'individus motivés dans le cadre de projets innovants ou originaux mais surtout humains.

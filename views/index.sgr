@@ -56,8 +56,9 @@ extends(src="layout.sgr")
           h3 Data
         div
           span Mise en place d'outils de traitement des données et de reporting
-      #who.soon
-        span ?
+      #who
+        a(href="/about.html")
+          span ?
       #mh
         ul
           li
