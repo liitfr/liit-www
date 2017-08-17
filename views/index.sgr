@@ -49,8 +49,8 @@ extends(src="layout.sgr")
       #blog.soon
         span Blog
       #tech.soon
-        // a(href="/technos.html")
-        span Technos
+        a(href="/technos.html")
+          span Technos
       #data
         div
           h3 Data

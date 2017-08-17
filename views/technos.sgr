@@ -1,0 +1,67 @@
+extends(src="pages.sgr")
+  block(name="meta")
+    title Technologies | LIIT
+    meta(name="description" content="Les technologies et standards Front-end, Back-end & DevOps utilisés lors des développements web sont les plus modernes, robustes & puissants.")
+    meta(name="robots" content="index, follow")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+  block(name="main")
+    h1 Technologies
+    p Voici la liste des technologies avec lesquelles je travaille actuellement :
+    h2 &#x1F3A8; Front-end
+    ul
+      li SSG : Spike
+      li HTML5
+        ul
+          li Preprocesseurs: Reshape & les autres
+      li CSS3 et Responsive web
+        ul
+          li Frameworks: Bootstrap, Materialize, ...
+          li Preprocesseurs: PostCSS & les autres
+          li Méthodologie : GPS
+      li JavaScript
+        ul
+          li ES6 & babel
+          li Vanilla JS ou jQuery (le moins possible)
+          li Frameworks : (p)React, Redux
+          li Module Loader : Webpack
+          li Tasks Runners : NPM scripts, Gulp
+      li Pour la dataviz et les animations : SVG, D3.js & GreenSock
+      li Architecture
+        ul
+          li JAMstack
+          li Headless CMS : DatoCMS, Contentful
+          li HTTP/2
+          li Service Workers
+          li PWA (Progressive Web Applications)
+          li CDN
+    h2 &#x1F47D; Back-end
+    ul
+      li Node.js
+        ul
+          li Frameworks : Express, Meteor
+          li Testing : Ava, Mocha, Chai
+          li Package Manager : Yarn, NPM
+      li PHP 7
+        ul
+          li Frameworks : Laravel
+          li Package Manager : Composer
+      li Storage
+        ul
+          li Relational Databases : PostgreSQL, MySQL, Oracle
+          li NoSQL : Redis, MongoDB
+      li RESTful APIs
+      li GraphQL
+    h2 &#x1F477; DevOps
+    ul
+      li Operating Systems : Linux (terminal & Bash)
+      li Web Servers : Nginx, Apache
+      li Cloud : AWS
+      li Deploiements : OVH, Netlify, DigitalOcean
+      li Continuous Integration : Travis, CircleCI, GreenKeeper
+      li Containers : Docker
+      li Protocoles : HTTP(S), SSH, SFTP
+    h2 Misc
+    ul
+      li Principes de développements : KISS, DRY, YAGNI, SOLID
+      li Git version control, GitHub
