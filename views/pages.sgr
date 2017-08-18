@@ -7,7 +7,7 @@ extends(src="layout.sgr")
     #glass(data-turbolinks-permanent)
 
   block(name="before-main")
-    #menu.fixed-height(data-turbolinks-permanent)
+    #menu(data-turbolinks-permanent)
       nav
         ul
           a(href="/")

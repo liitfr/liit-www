@@ -7,7 +7,8 @@ extends(src="pages.sgr")
 
   block(name="main")
     h1 À propos
-    p Je m'appelle Mathias Hoffmann.
+    p Je m'appelle Mathias Hoffmann, et c'est exactement lors du noël de l'année 1994 qu'est née ma passion pour l'informatique, lorsque nos parents nous offrent à mon frère et moi notre premier ordinateur : un Amstrad CPC 646 ...
+    img(src="/img/pages/about/firstcomputer-581-402.jpg" alt="Mon premier ordinateur, un Amstrad CPC 646" style="width: 100%; filter: hue-rotate(180deg);")
     p Je suis ingénieur Miage-iste spécialisé en informatique décisionnelle (BI pour Business Intelligence). À ce titre, j'ai travaillé de 2008 à 2015 en société de services en tant que consultant, successivement pour Sopra Group puis pour Logica, devenues respectivement Sopra Steria et CGI. J'intervenais auprès de leurs clients principalement en qualité d'assistant à la maîtrise d'ouvrage ou en celle de maître d'œuvre.
     p J'ai démissionné à deux reprises.
     p La première fois, pour un voyage improbable à vélo en solitaire qui me mena de la côte atlantique française jusqu'en Inde en passant par la Route de la soie et l'Asie Centrale. J'y ai développé le goût de l'effort, l'amour des montagnes et des grands espaces, et la sensation de solitude et de vanité qu'ils nous confèrent. Je pratique l'alpinisme et l'escalade, et j'espère un jour pouvoir découvrir la voile.
