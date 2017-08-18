@@ -25,7 +25,7 @@
     "spike-page-id": "^1.0.0",
     "sugarml": "^0.6.0",
     "sugarss": "^1.0.0",
-    "three": "^0.86.0",
+    "three": "^0.87.0",
     "turbolinks": "^5.0.3",
     "webpack": "^3.5.1",
     "workbox-build": "^1.2.0"
