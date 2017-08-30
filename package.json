@@ -28,7 +28,7 @@
     "three": "^0.86.0",
     "turbolinks": "^5.0.3",
     "webpack": "^3.5.1",
-    "workbox-build": "^1.2.0"
+    "workbox-build": "^2.0.0"
   },
   "devDependencies": {
     "ava": "^0.21.0",
