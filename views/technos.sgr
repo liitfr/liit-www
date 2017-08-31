@@ -9,7 +9,8 @@ extends(src="pages.sgr")
     h1 Technologies
     p Voici la liste des technologies avec lesquelles je travaille actuellement :
 
-    h2 &#x1F3A8; Front-end
+    // &#x1F3A8;
+    h2 Front-end
     ul
       li SSG : Spike
       li HTML5
@@ -39,7 +40,8 @@ extends(src="pages.sgr")
           li CDN
           li Server Side Rendering
 
-    h2 &#x1F47D; Back-end
+    // &#x1F47D;
+    h2 Back-end
     ul
       li Node.js
         ul
@@ -60,12 +62,14 @@ extends(src="pages.sgr")
           li JSON API
           li GraphQL
 
-    h2 &#x1F4F1; Mobiles
+    // &#x1F4F1;
+    h2 Mobiles
     ul
       li Cordova
       li React Native
 
-    h2 &#x1F477; DevOps
+    // &#x1F477;
+    h2 DevOps
     ul
       li Operating Systems : Linux (terminal & Bash)
       li Web Servers : Nginx, Apache
@@ -75,7 +79,8 @@ extends(src="pages.sgr")
       li Containers : Docker
       li Protocoles : HTTP(S), SSH, SFTP, DDP
 
-    h2 &#x1F440; Misc
+    // &#x1F440;
+    h2 Misc
     ul
       li Principes de développements : KISS, DRY, YAGNI, SOLID
       li Git version control, GitHub

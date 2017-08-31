@@ -6,7 +6,8 @@ extends(src="pages.sgr")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
   block(name="main")
-    h1 Go Static ! &#x1F918;
+    // &#x1F918;
+    h1 Go Static !
     p "The simpler you make things, the richer the experience becomes." Il n'y a aucune raison d'avoir un CMS massif et lourd avec une base de données lorsque vous pourriez avoir un site statique rapide, sécurisé et beau. Mais comment pouvez-vous décider si un site statique vous convient ?
     h2 Vous valorisez la sécurité
     p Vous souvenez-vous de quand date la dernière fois où vous avez mis à jour votre CMS et vos plugins ? Selon une estimation, 70% de toutes les installations de WordPress sont vulnérables aux attaques classiques. En 2014, des millions de sites Drupal étaient vulnérables en raison d'un bug dans le code, et Drupal a déclaré aux utilisateurs que, s'ils n'avaient pas mis à jour leur version dans les 7 heures suivant l'annonce, ils devraient supposer que ces derniers avaient fait l'objet d'un piratage. 7 heures, c'est très court ...
