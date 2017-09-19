@@ -1,8 +1,7 @@
-// TODO : Three.js treeshacking
-// BUG : eslint-import-resolver-webpack doesn't work with webpack 2
+/* global THREE */
 
-import 'Projector';
-import 'CanvasRenderer';
+import 'Projector'; // eslint-disable-line
+import 'CanvasRenderer'; // eslint-disable-line
 
 // -----------------------------------------------------------------------------
 // Push Effect

@@ -92,8 +92,8 @@ function applyTransforms(el, nobodyscale) {
   }
 
   // apply transform
-  el.style.WebkitTransform = `translate3d(${Number((win.width / 2) - (zoomerOffset.left + (zoomerAreaSize.width / 2)))}px,${Number((win.height / 2) - (zoomerOffset.top + (zoomerAreaSize.height / 2)))}px,0) scale3d(${scaleVal},${scaleVal},1)`;
-  el.style.transform = `translate3d(${Number((win.width / 2) - (zoomerOffset.left + (zoomerAreaSize.width / 2)))}px,${Number((win.height / 2) - (zoomerOffset.top + (zoomerAreaSize.height / 2)))}px,0) scale3d(${scaleVal},${scaleVal},1)`;
+  el.style.WebkitTransform = `translate3d(${Number((win.width / 2) - (zoomerOffset.left + (zoomerAreaSize.width / 2)))}px,${Number((win.height / 2) - (zoomerOffset.top + (zoomerAreaSize.height / 2)))}px,0) scale3d(${scaleVal},${scaleVal},1)`; // eslint-disable-line
+  el.style.transform = `translate3d(${Number((win.width / 2) - (zoomerOffset.left + (zoomerAreaSize.width / 2)))}px,${Number((win.height / 2) - (zoomerOffset.top + (zoomerAreaSize.height / 2)))}px,0) scale3d(${scaleVal},${scaleVal},1)`; // eslint-disable-line
 }
 
 // navRightCtrl event cb
@@ -188,7 +188,7 @@ function initEvents() {
   const screens = document.querySelectorAll('.zoomer__image, .preview');
   let i;
   for (i = 0; i < screens.length; i += 1) {
-    screens[i].addEventListener('click', () => {
+    screens[i].addEventListener('click', () => { // eslint-disable-line
       window.location.hash = `#zoom/${currentContent}`;
     });
   }

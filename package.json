@@ -35,6 +35,7 @@
     "del": "^3.0.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.2",
+    "eslint-import-resolver-webpack": "^0.8.3",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
@@ -64,7 +65,7 @@
   "private": true,
   "repository": "https://github.com/liitfr/liit-www",
   "scripts": {
-    "lint": "standard | snazzy",
+    "lint": "eslint --ignore-path .gitignore **/*.js",
     "precommit": "npm run lint -s",
     "pretest": "npm run lint -s",
     "test": "NODE_ENV=test ava"

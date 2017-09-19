@@ -18,7 +18,7 @@ function scrollTo(element, to, duration) {
   const perTick = (difference / duration) * 10;
 
   setTimeout(() => {
-    element.scrollTop += perTick;
+    element.scrollTop += perTick; // eslint-disable-line
     if (element.scrollTop === to) return;
     scrollTo(element, to, duration - 10);
   }, 10);
@@ -67,7 +67,7 @@ hamburger.onclick = () => {
 
 let i;
 for (i = 0; i < links.length; i += 1) {
-  links[i].onclick = (ev) => {
+  links[i].onclick = (ev) => { // eslint-disable-line
     activeLink.classList.remove('active');
     activeLink = ev.target;
     activeLink.classList.add('active');
