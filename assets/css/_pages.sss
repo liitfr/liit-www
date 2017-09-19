@@ -1,0 +1,279 @@
+#technos,
+#about,
+#services,
+#web
+  color: #fff
+  font-family: 'Hind Madurai', sans-serif
+  font-size: 1.3em
+
+  @media screen and (max-width: 27em)
+    font-size: 1.1em
+
+  & #container
+    & header
+      position: fixed
+      z-index: 3
+      width: 16vw
+      height: 16vw
+      min-width: calc(120px + 6vw)
+      min-height: calc(120px + 6vw)
+      top: 0
+      left: 0
+
+      @media screen and (max-width: 27em)
+        width: 100%
+        min-height: calc(80px + 6vw)
+
+      & #logo
+        & .polylogo
+          fill: #282c34
+          transition: fill 0.35s
+
+          @media screen and (max-width: 27em)
+            fill: #b21158
+
+        & #brand
+          fill: #b21158
+          transition: fill 0.35s
+
+          @media screen and (max-width: 27em)
+            fill: #282c34
+
+        @media screen and (max-width: 27em)
+          &.beyond-menu
+            & .polylogo
+              fill: #fff !important
+
+            & #brand
+              fill: #b21158 !important
+
+      & #glass
+        display: none
+
+        @media screen and (max-width: 27em)
+          z-index: -1
+          display: initial
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%
+          background: rgba(40, 44, 52, 0.8)
+          backdrop-filter: blur(5px)
+          box-shadow: 2px 4px 8px #271d1d
+          transition: background 0.35s, backdrop-filter 0s, box-shadow 0s
+
+          &.behind-menu
+            background: transparent
+            box-shadow: initial
+            backdrop-filter: initial
+
+      & #hamburger
+        display: none
+
+        @media screen and (max-width: 27em)
+          display: initial
+          position: absolute
+          top: 50%
+          right: 20px
+          height: 27px
+          width: 35px
+          cursor: pointer
+          z-index: 100
+          transform: translateY(-50%)
+          transition: opacity 0.25s ease
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+
+          &:hover
+            opacity: 0.7
+
+          & span
+            background: #b21158
+            height: 5px
+            width: 100%
+            position: absolute
+            top: 0
+            left: 0
+            cursor: pointer
+            transition: all 0.35s ease
+
+            &:nth-of-type(2)
+              top: 11px
+
+            &:nth-of-type(3)
+              top: 22px
+
+          &.active
+            & span
+              background: #fff
+
+              &:nth-of-type(1)
+                transform: translateY(11px) translateX(0) rotate(45deg)
+
+              &:nth-of-type(2)
+                opacity: 0
+
+              &:nth-of-type(3)
+                transform: translateY(-11px) translateX(0) rotate(-45deg)
+
+    // From https://codepen.io/PaulVanO/pen/XJYGNQ
+    & #menu
+      position: fixed
+      top: 0
+      left: 0
+      height: 100%
+      min-height: 100vh
+      overflow-y: auto
+      width: 16vw
+      min-width: calc(120px + 6vw)
+      background: #282c34
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b21158' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E")
+
+      @media screen and (max-width: 27em)
+        z-index: 2
+        width: 100%
+        height: 0%
+        opacity: 0
+        visibility: hidden
+        transition: opacity 0.35s, visibility 0.35s, height 0.35s
+        overflow: hidden
+
+        &.open
+          opacity: 0.9
+          visibility: visible
+          height: 100%
+
+      & nav
+        margin-top: 16vw
+
+        @media screen and (max-width: 1198px)
+          margin-top: calc(120px + 6vw)
+
+        @media screen and (max-width: 27em)
+          position: fixed
+          top: 50%
+          transform: translateY(-50%)
+          left: 0
+          width: 100%
+          margin-top: 0
+
+        & ul
+          padding-left: 0
+
+          @media screen and (max-width: 27em)
+            margin: 0
+
+          & a
+            color: inherit
+            text-decoration: none
+
+            & li
+              height: 9vh
+              line-height: 9vh
+              text-align: center
+              font-size: 30px
+              font-weight: 800
+              font-family: 'Raleway', Arial, sans-serif
+              text-transform: uppercase
+
+              @media screen and (max-width: 1241px)
+                font-size: 25px
+
+              &:hover,
+              &.active
+                background: #282c34
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23b21158' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")
+
+    & main
+      max-width: 768px
+      margin: auto
+      margin-bottom: 4em
+
+      @media screen and (max-width: 1241px)
+        margin-left: calc(120px + 10vw)
+        margin-right: 20px
+
+      @media screen and (max-width: 27em)
+        margin: 20px
+
+      & h1,
+      & h2,
+      & h3
+        font-family: 'Raleway', Arial, sans-serif
+        color: #b21158
+
+        &::selection
+          color: #282c34
+          background: #ff358b
+
+      & strong
+        color: #282c34
+        background: #ff358b
+
+      & h1
+        font-size: 2.8em
+        height: 16vw
+        min-height: calc(120px + 6vw)
+        display: inline-flex
+        align-items: center
+        margin: 0
+
+        @media screen and (max-width: 27em)
+          margin-top: 16vw
+          font-size: 2.3em
+
+      & p
+        &:first-of-type
+          margin-top: 0
+
+      & p,
+      & li
+        &::selection
+          color: #ff358b
+          background: transparent
+
+    // From https://codyhouse.co/gem/back-to-top/
+    & #goto-top
+      display: inline-block
+      height: 40px
+      width: 40px
+      position: fixed
+      bottom: 40px
+      right: 10px
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05)
+      overflow: hidden
+      text-indent: 100%
+      white-space: nowrap
+      background: rgba(178, 17, 88, 0.8) url(../img/pages/top-arrow.svg) no-repeat center 50%
+      visibility: hidden
+      opacity: 0
+      transition: opacity 0.3s 0s, visibility 0s 0.3s
+
+      @media only screen and (min-width: 1024px)
+        height: 60px
+        width: 60px
+        right: 30px
+        bottom: 30px
+
+      @media only screen and (min-width: 768px)
+        right: 20px
+        bottom: 20px
+
+      @media screen and (max-width: 27em)
+        display: none
+
+      &.is-visible,
+      &.fade-out
+        transition: opacity 0.3s 0s, visibility 0s 0s
+
+      &.is-visible
+        visibility: visible
+        opacity: 1
+
+      &.fade-out
+        opacity: 0.5
+
+      &:hover
+        transition: opacity 0.3s 0s, visibility 0s 0s
+        background-color: #b21158
+        opacity: 1

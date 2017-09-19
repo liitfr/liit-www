@@ -129,6 +129,8 @@ html.no-js(lang="fr")
         main#content
           block(name="main")
 
+        block(name="after-main")
+
     script(src="/js/common.js" data-turbolinks-eval="false" defer)
 
     block(name="javascript")

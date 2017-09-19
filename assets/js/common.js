@@ -1,13 +1,7 @@
-/* eslint no-console: ["error", { allow: ["info", "warn", "error"] }] */
-/* eslint no-param-reassign: ["error", {
-     "props": true,
-     "ignorePropertyModificationsFor": ["reg"]
-   }] */
-
 import FastClick from 'fastclick';
 import LogStyle from 'log-with-style';
-import TweenLite from 'TweenLite';
-import AttrPlugin from 'AttrPlugin';
+import TweenLite from 'TweenLite'; // eslint-disable-line
+import AttrPlugin from 'AttrPlugin'; // eslint-disable-line
 import SnackBar from 'node-snackbar';
 import Turbolinks from 'turbolinks';
 
@@ -22,7 +16,7 @@ Turbolinks.start();
 function calculateHeight() {
   const fixedHeightElems = document.getElementsByClassName('fixed-height');
   [].forEach.call(fixedHeightElems, (el) => {
-    el.style.height = `${window.innerHeight}px`;
+    el.style.height = `${window.innerHeight}px`; // eslint-disable-line
   });
 }
 
@@ -73,7 +67,7 @@ if ('serviceWorker' in navigator) {
     window.addEventListener('online', updateOnlineStatus);
     window.addEventListener('offline', updateOnlineStatus);
     navigator.serviceWorker.register('/sw.js').then((reg) => {
-      reg.onupdatefound = () => {
+      reg.onupdatefound = () => { // eslint-disable-line
         const installingWorker = reg.installing;
         installingWorker.onstatechange = () => {
           switch (installingWorker.state) {
@@ -89,11 +83,11 @@ if ('serviceWorker' in navigator) {
                   duration: 7500,
                 });
               } else {
-                console.info(availableMsg);
+                console.info(availableMsg); // eslint-disable-line
               }
               break;
             case 'redundant':
-              console.info(redundantMsg);
+              console.info(redundantMsg); // eslint-disable-line
               break;
             default:
               break;
@@ -101,7 +95,7 @@ if ('serviceWorker' in navigator) {
         };
       };
     }).catch((e) => {
-      console.error(errorMsg, e);
+      console.error(errorMsg, e); // eslint-disable-line
     });
   });
 }

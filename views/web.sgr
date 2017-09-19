@@ -1,0 +1,121 @@
+extends(src="pages.sgr")
+  block(name="meta")
+    title Quelles technologies pour votre site web ? | LIIT
+    meta(name="description" content="Une recette idéale : la JAMstack pour construire des sites puissants, fiables et sécurisés.")
+    meta(name="robots" content="index, follow")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+  block(name="main")
+    // &#x1F918;
+    h1 Go Static !
+    p "The simpler you make things, the richer the experience becomes." Il n'y a aucune raison d'avoir un CMS massif et lourd avec une base de données lorsque vous pourriez avoir un site statique rapide, sécurisé et beau. Mais comment pouvez-vous décider si un site statique vous convient ?
+    h2 Vous valorisez la sécurité
+    p Vous souvenez-vous de quand date la dernière fois où vous avez mis à jour votre CMS et vos plugins ? Selon une estimation, 70% de toutes les installations de WordPress sont vulnérables aux attaques classiques. En 2014, des millions de sites Drupal étaient vulnérables en raison d'un bug dans le code, et Drupal a déclaré aux utilisateurs que, s'ils n'avaient pas mis à jour leur version dans les 7 heures suivant l'annonce, ils devraient supposer que ces derniers avaient fait l'objet d'un piratage. 7 heures, c'est très court ...
+    p Avec un site statique, vous n'avez plus à vous soucier de l'injection de code malveillant sur votre site ou du piratage de votre base de données. Les sites statiques sont construits sur un ordinateur (cela peut être le vôtre) par des générateurs de sites statiques, qui consument vos entrants pour produire des fichiers HTML, CSS et JavaScript. Lorsqu'un utilisateur demande à consulter une page de votre site, le serveur lui envoie directement le fichier concerné, au lieu de générer cette page à la volée. "Aucun processus de construction" signifie qu'aucun piratage standard comme les scripts ou les "exploits" de sécurité de la base de données ne peut fonctionner.
+    h2 Vous valorisez la vitesse
+    p Que fait votre navigateur lorsque vous visitez un site ? Il rend le HTML, le CSS et le JavaScript dans un format visible par l'homme. Quel que soit le type de site que vous possédez, un site dynamique ou un système de génération statique moderne, ce qui est envoyé par le serveur à votre navigateur reste du HTML, du CSS et du JavaScript. Point.
+    p Alors, pourquoi perdre du temps et gaspiller les ressources nécessaires pour générer votre site à chaque fois que quelqu'un le visite quand vous pourriez avoir une version pré-construite de celui-ci, prête à être utilisée ? Un site statique normal hébergé sur un CDN (Content Delivery Network) est souvent 10 fois plus rapide pour l'émission du premier octet qu'un site construit avec un CMS ...
+    p De plus, en hébergeant votre site statique sur un CDN, vous pouvez le servir à partir de n'importe quel nœud le plus proche de vos utilisateurs. Quelqu'un qui regarde votre site dans un café à Paris recevra les données d'un serveur européen, et pas d'une ferme de serveurs dans la Silicon Valley. Il en va de même pour vos visiteurs japonais ou un utilisateur juste en bas de la rue.
+    p Gardez en tête qu’un chargement rapide de vos pages signifie un renforcement de l’implication ("user engagement") de vos visiteurs, une augmentation du nombre de pages consultées et du taux de conversion.
+    p Cet aspect est également important dans le domaine de l’optimisation pour les moteurs de  recherche (SEO). Google et ses concurrents accordent une importance significative et positive à ce critère pour le calcul du positionnement de vos pages.
+    h2 La flexibilité
+    p Votre site construit avec WordPress ou Drupal commence souvent comme une solution à "taille unique" qui est ensuite enrichie en ajoutant des plugins. Beaucoup de plugins. Sérieusement ... tellement de plugins ... Une recherche rapide sur Google pour connaître "les plugins WordPress essentiels" retourne une page où neuf résultats sur dix ont pour titre "20 plugins dont vous ne pourrez plus vous passer" ...
+    p
+      | Avec un site statique, vous pourrez rester épuré et concentré ("lean and mean"), grâce à un outil qui fait exactement ce dont vous avez besoin. Vous aimez bloguer ? Essayez Jekyll ou Hugo. Vous voulez un site de marketing haute performance ? Faites comme les pros et utilisez  Middleman ou&nbsp;
+      strong Spike
+      |. Vous essayez de mettre en avant votre portfolio ? Peut-être que Cactus sera fait pour vous. Vous souhaitez une solution simple et cependant finement paramétrable ? Jetez un œil à Metalsmith et ses nombreux plugins.
+    h2 L'agilité
+    p Votre installation WordPress (surtout si vous l'hébergez vous-même) est un monstre de Frankenstein qui ressemble probablement à ceci :
+    ul
+      li Une machine qui exécute "votre distribution préférée" (sic) de Linux
+      li Un serveur Web exécutant Nginx ou Apache
+      li PHP avec ses extensions associées et ses configurations de serveur Web
+      li MySQL
+      li WordPress (évidemment)
+      li Tous les plugins dont vous aurez besoin (voir n ° 3)
+      li Vos templates et thèmes
+    p Si vous ne souhaitez gérer votre hébergement, il faudra croiser les doigts pour que votre  prestataire conserve son architecture (PHP et MySQL) à jour, de sorte que vous ne soyez jamais exposé aux vulnérabilités qui apparaissent de temps en temps. Ensuite, il y a la maintenance... Il faudra vous assurer d'avoir alloué le temps nécessaire pour gérer toutes ces dépendances.
+    p Et même un peu plus de temps au cas où un plugin ou un thème mis à jour viendrait à dégrader  quelque chose ...
+    p Un site statique, lorsqu'il a été généré, peut être hébergé sur n'importe quel serveur Web capable de renvoyer des fichiers HTML (ce qui vous offre toute une gamme d'options). Vous voudrez certainement exploiter au maximum les possibilités qui sont offertes avec un site statique en  trouvant un hôte qui permet des fonctionnalités telles que le déploiement continu, l'invalidation instantanée du cache, les déploiements automatiques et plus encore.
+    p Bien sûr, toutes ces préoccupations peuvent être déléguées à un prestataire, et au lieu d'installer, gérer et mettre à jour votre CMS, vous pourrez focaliser votre attention sur l’essentiel :  l'élaboration du contenu et du design de votre site.
+    h2 La fiabilité
+    noscript
+      img(src="/img/pages/web/database-error-620-250.png" alt="Message d'erreur lors de la tentative de connexion à la base de données : 'Error establishing a database connection'" style="width: 100%; display: block; margin: 20px auto;")
+    img.lazyload(src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmwAAAABCAQAAADJaToDAAAAEklEQVR42mNkGAWjYBSMgmEGAAmyAAIP6oLXAAAAAElFTkSuQmCC" alt="Message d'erreur lors de la tentative de connexion à la base de données : 'Error establishing a database connection'" style="width: 100%; display: block; margin: 20px auto;" data-src="/img/pages/web/database-error-620-250.png")
+    p Est-ce que ce message vous semble familier (et douloureux) ? Si vous avez réussi à l'éviter avec votre propre site jusqu'à présent ... alors félicitations, vous êtes dans une entreprise rare ! De toute évidence, en travaillant avec un site statique, et donc sans base de données, vous ne serez (plus)  jamais confronté à cela.
+    p Mais la fiabilité du site statique va bien au-delà des erreurs de base de données. La beauté derrière  le fait de servir des pages HTML pré-générées est qu’elles peuvent être hébergées n'importe où et partout, en utilisant un CDN (Content Delivery Network).
+    p Disons qu'il y a une attaque DDoS (attaque par déni de service) sur le serveur où votre CMS est hébergé. Désolé, mais vous pourriez être cuit pendant quelques heures (ou pire, jours). Que se passera-t-il si cette même attaque frappe un nœud où votre site statique est hébergé ? Plus de soucis, celui-ci sera alors servi à partir du prochain nœud le plus proche et vos visiteurs ne se rendront même pas compte qu'il y a un problème.
+    h2 Le contrôle de version
+    p Il est tout à fait possible de concevoir un site statique sur votre ordinateur, puis de le télécharger sur un serveur (que ce soit via un outil en ligne de commande ou par une interface graphique de glisser-déposer), mais la plupart des développeurs finissent par utiliser un de système de gestion de version comme Git.
+    p Si vous êtes développeur, alors vous connaissez certainement déjà combien ces outils peuvent vous sauver la mise dans certaines circonstances, et ceci reste vrai lorsqu'il s'agit de projets Web. Ils permettent de revenir en arrière vers une version antérieure stable si par erreur quelque chose déraillait.
+    p Certains hébergeurs proposent même des fonctionnalités permettant de passer d’une version de votre site à une autre en quelques clics seulement (Netlify par exemple).
+    h2 L'expérience de développement
+    p L’autre beauté derrière l'utilisation d'un générateur de site Web statique est aussi dans l'expérience de développement. Les outils de "build" qui génèrent votre code HTML incluent presque tous un serveur Web local, qui vous permettra de vérifier vos progrès au fur et à mesure de vos développements, en temps réel.
+    p De cette manière l’activité du développeur est accélérée puisqu’il a directement la certitude que ce qu’il réalise correspond aux attendus spécifiés. Il visualise en direct le site de la même façon que les visiteurs le verront une fois que celui-ci aura été déployé.
+    h2 "Scalabilité" et rendement d'échelle
+    p Imaginez ... Ça y est ! Votre site est devenu viral, et vous observez une adhésion massive et un nombre accru de visites grâce à votre présence sur les médias sociaux.
+    p Peut-être aviez-vous anticipé que cela se produirait un jour, en ayant dès le départ prévu les choses en grand ? Vous payez depuis longtemps de gros volumes de bande passante, en espérant (ou en craignant !) une future explosion des visites ?
+    p Ou au contraire vous n’avez jamais vraiment cru que cette situation serait possible un jour, et aujourd’hui vous multipliez les appels frénétiques auprès de votre fournisseur de services pour le sortir du lit ou de table parce que votre plan ne pouvait pas gérer ce niveau de trafic, et que c’est votre domaine tout entier qui est en rade ...
+    p Évidement : cette augmentation du trafic implique l’augmentation du nombre d’exécution de traitements complexes lancés sur votre serveur à chaque visite. Cette croissance va vous frapper là où ça fait mal: au porte-monnaie.
+    p Avec un site statique, l'évolutivité reste un problème mineur ! Un nombre accru de requêtes signifie plus de pages servies, mais aucun traitement supplémentaire nécessaire lors de la construction de ces pages.
+    p Avec certains fournisseurs, cette montée en charge est intégrée dans votre forfait, tandis qu'avec d'autres (comme Amazon S3), vous ne payez que ce que vous consommez.
+    h2 Hébergement et prix
+    p Avec un site statique, si la majorité des traitements a lieu sur votre machine de production (qui par ailleurs peut être votre ordinateur) durant la phase de construction, alors que vous restera-t-il à payer ?
+    p Globalement, rien d’autre que du stockage de fichier. C’est-à-dire : pas grand-chose ! Vous pouvez alors dépenser votre argent là où cela compte vraiment : sur les fonctionnalités qui rendent votre site plus rapide et votre vie plus facile.
+    p Des fonctionnalités telles que les déploiements atomiques et la gestion des versions de vos fichiers vous assureront que votre site est en permanence à jour chez tous vos visiteurs, ou encore l'intégration avec Git et les déploiements automatiques.
+    p De cette manière votre site inclut instantanément et en permanence vos dernières modifications,  chacune de ses versions faisant l’objet d’une "photographie" qui rendra possible le fait de revenir en arrière en cas de problème.
+    p Alors, qu'est-ce qui pourrait vous empêcher de passer dans le monde du Web statique? Le processus de migration vous paraît trop intimidant ? Pas de panique ! De nombreux outils comme Jekyll ont la possibilité d'importer vos anciens messages WordPress. Il existe aussi des moyens vous permettant de continuer l’exploitation de votre base de données back-end !
+    p Peu importe les technologies et langages avec lesquels vous préférez développer : que ce soit Node, Ruby, Python ou autre, il existe un outil de génération fait pour vous.
+    p Il n'a jamais été meilleur moment pour profiter de la rapidité, de la sécurité et de la fiabilité des générateurs de sites Web statiques (SSG pour "Static Site Generator") et des environnements de développement qui les entourent.
+    p Alors, n’attendez plus !
+    h2 Pour conclure
+    p Maintenant, vous savez pourquoi il vaut mieux laisser de côté les technologies dynamiques, destinées aux applications transactionnelles (telles que les applications de gestion, aux nombreuses entrées / sorties) ou aux applications temps réel complexes (telles que Facebook où la recompilation à chaque nouvel événement n’est évidement pas envisageable).
+    p Dans cette réflexion entre site statique / site dynamique, il s’agit en réalité d’identifier le chemin critique entre le temps de (re)compilation – totale ou idéalement atomique – d’un site statique lors de sa phase de "build" et le temps de génération de la page à la volée suite à la requête d’un visiteur sur un site dynamique.
+    p Smashing Magazine, en choisissant une nouvelle version statique de leur site (comprenant des milliers d’articles et plusieurs dizaines de milliers de commentaires), a permis de réduire par 10 les temps d’accès aux premiers octets ; en passant de 800ms à 80ms.
+    p L'explosion des appareils mobiles a changé le visage du Web de plusieurs façons. De plus en plus de visiteurs surfent sur le Web à partir d'un appareil mobile, souvent sur une connexion 3G. Jamais la performance n'a été aussi importante qu'aujourd'hui.
+    p
+      | Saviez-vous que&nbsp;
+      strong 57% des visiteurs en ligne abandonneront leur navigation sur une page si elle nécessite plus de 3 secondes pour s’afficher
+      | &nbsp;? Les gens étaient encore disposés à attendre jusqu'à 10 secondes il y a quelques années, mais les exigences sont aujourd'hui beaucoup plus élevées. Sur un mobile, attendre qu'un site Web se soit chargé peut être tellement frustrant que plus de 4% des personnes avouent avoir un jour jeté leur téléphone en attendant qu’un site mobile lent s’affiche enfin ...
+    p Peu importe à quel point vous optimiserez votre site Web dynamique et combien de milliers d’Euros vous consacrerez à cette tâche, il ne vous donnera jamais la même garantie de performance de base qu'un site statique bien défini, et directement hébergé sur un CDN pour seulement quelques Euros par mois.
+    h2 Et pour rester à la page
+    h3 La "JAM Stack"
+    p Adopter les conseils qui viennent de vous être présentés revient souvent à choisir la démarche «JAM».
+    ul
+      li J pour JavaScript : Toute programmation dynamique du cycle de requête / réponse est gérée par JavaScript, et donc exécutée entièrement sur le client. Cela peut être par l’intermédiaire de n’importe quelle librairie, framework front-end ou encore simplement avec du code "vanilla"
+      li A pour API : Les processus côté serveur tels que les actions sur bases de données sont interfacés par des API réutilisables (ou des services Cloud), accessibles via HTTP avec JavaScript. Il peut s’agir d’API personnalisées tout comme il peut s’agit de services tiers. Par exemple : consulter les 10 articles suivants de votre blog, envoyer un message via le formulaire de contact, passer une commande et payer en ligne, utiliser le moteur de recherche interne du site ...
+      li M pour Markup : Le balisage HTML doit être pré-construit au moment du déploiement, généralement à l’aide d’un générateur de site pour les sites de contenu ou un outil de création d’applications Web.
+    h3 Le protocole HTTP/2
+    p HTTP/2 est la nouvelle version du protocole HTTP qui rendra vos applications plus rapides, plus simples et plus robustes - une combinaison rare ;-) - en vous permettant d’éviter d’avoir à implémenter au niveau applicatif des solutions de contournement historiques (tels que les bundles, les sprites, ...) liées à des limitations intrinsèques au protocole, et de répondre à ces préoccupations dans la couche de transport elle-même.
+    p Il ne s'agit pas d'une réécriture totale du protocole; Les méthodes HTTP, les codes d'état et la sémantique sont identiques, et il devrait normalement être possible de passer d’une version du protocole à l’autre de façon totalement transparente. Les principaux objectifs du HTTP/2 sont de réduire la latence en :
+    ul
+      li Activant le multiplexage complet des requêtes et des réponses
+      li Minimisant le poids des échanges grâce à une compression des en-têtes HTTP
+      li Transmettant les données en binaire et plus en mode texte pour limiter les risques d’erreur
+      li Ajoutant le support des priorisations de requêtes et le "push" serveur.
+    p Désormais grâce à ce dernier point, le serveur sera en mesure d’envoyer l’ensemble des ressources référencées dans une même page (CSS, JS...), avant même que le navigateur n’ait analysé celle-ci.
+    h3 Progressive Web Applications (PWA)
+    p Les applications Web progressives apportent une "Expérience Utilisateur" (UX) similaire à celle des applications natives disponibles sur les "App Stores". Elles sont :
+    ul
+      li
+        | Fiables : Elles se chargent instantanément et ne montrent jamais le "downasaur", même dans des conditions de réseau instables ou inexistantes.
+        noscript
+          img(src="/img/pages/web/google-chrome-dinosaure-554-227.png" alt="Le T-Rex Chrome : Impossible de se connecter à Internet." style="width: 100%; display: block; margin: 20px auto;")
+        img.lazyload(src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAioAAAABCAQAAABazU3kAAAAEklEQVR42mNkGAWjYBSMAioCAAiqAAIrxfE1AAAAAElFTkSuQmCC" alt="Le T-Rex Chrome : Impossible de se connecter à Internet." style="width: 100%; display: block; margin: 20px auto;" data-src="/img/pages/web/google-chrome-dinosaure-554-227.png")
+        | Ceci est rendu possible par l’utilisation de Service Workers (cf. chapitre suivant)
+      li Puissantes : La rapidité est la clef ! Comme nous l’avons vu, 53% des utilisateurs abandonnent un site s'il faut plus de 3 secondes pour le charger. Et une fois chargé, ils s’attendent à ce que l’application soit rapide comme l’éclair. Les interactions comme le scrolling ou les actions tactiles doivent rester fluides, sans jamais expérimenter de "Jank" (saccades, blocages, ou autres ralentissements)
+      li Immersives : Elles donnent à l’utilisateur la sensation d’utiliser une application native. Les  applications Web progressives sont installables sans avoir besoin d'utiliser un "App Store", elles possèdent leur propre icône et sont directement accessibles sur l'écran d'accueil de l'utilisateur. Elles offrent une expérience immersive grâce au mode plein-écran et peuvent même ré-impliquer et relancer les utilisateurs grâce aux notifications Push Web. En s’abonnant explicitement aux notifications d’un site, l’utilisateur autorise ce dernier à lui envoyer des alertes, y compris lorsqu’il n’est pas en train de le visiter. Les notifications Push Web s’affichent alors sur son bureau ou sur l’écran d’accueil de son smartphone. Des messages qui peuvent être hyper ciblés, en fonction de ses goûts, de son expérience, ou de son parcours. Cette fonctionnalité représente l’avenir de la fidélisation et supplantera  progressivement le mailing marketing. Plus globalement, l’expérience PWA améliore la satisfaction de vos utilisateurs, favorise leur engagement et augmente le taux de conversion.
+    p Ci-dessous, trois exemples prouvant cet effet de levier :
+      ol
+        li. Les notifications Push Web ont aidé eXtra Electronics à augmenter l'engagement par 4. Leurs utilisateurs passent maintenant deux fois plus de temps sur leur site.
+        li. Les Service Workers ont permis à Konga de réduire de 84 % la quantité de donnée impliquée lors de la première transaction.
+        li AliExpress a vu son taux de conversion des nouveaux utilisateurs augmenter de 104%. Les visites durent 74 % plus longtemps et deux fois plus de pages sont visitées en moyenne lors d’une session.
+    h3 Les Service Workers
+    p Les Service Workers sont écrits en JavaScript et agissent en arrière-plan sur le navigateur de votre visiteur. Ils permettent en autres de régir la mise en cache des ressources, pour garantir de futures visites ultra-rapides ainsi que le maintient d’une expérience utilisateur en mode déconnecté.
+    p Ils proposent également des fonctionnalités telles que la synchronisation régulière des ressources en tâche de fond, et les "Push Notifications" abordées précédemment dans ce document.
+    p Il peut aussi s’agir de "Geofencing", ou en d’autres termes de la technologie qui permet d'envoyer des notifications aux utilisateurs lors de leur entrée ou de leur départ d'une zone géographique donnée.
+    h3 "Headless" CMS
+    p Vous publiez régulièrement du contenu sur votre site ? Fiches produits, actualités, articles, marketing éditorial ... Votre Content Manager souhaite conserver une interface fonctionnelle et ergonomique qui lui permettra de continuer à travailler comme il le faisait avant, avec un outil comme WordPress ou Drupal ?
+    p Tout cela reste possible si l’on fait travailler votre site statique main dans la main avec un "Headless CMS". C’est à dire un CMS qui se focalise sur la gestion des contenus, et qui se contente d'une API en façade.
+    p Il existe un très grand nombre de références, telles que Contentful, DatoCMS, Rooftop, Built.io, ... Certains de ces CMS modernes supportent les requêtes GraphQL et nombreux sont ceux qui incluent un premier niveau d’offre totalement gratuit.
+    strong N'hésitez pas à me contacter pour faire le point sur votre projet !
