@@ -1,7 +1,7 @@
 {
   "name": "liit-www",
   "description": "LIIT website",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "author": "liitfr",
   "ava": {
     "verbose": "true"
