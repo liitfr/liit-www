@@ -27,7 +27,7 @@
     "sugarss": "^1.0.0",
     "three": "^0.89.0",
     "turbolinks": "^5.0.3",
-    "webpack": "^3.5.1",
+    "webpack": "^4.0.0",
     "workbox-build": "^2.0.0"
   },
   "devDependencies": {
